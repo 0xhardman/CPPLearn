@@ -1,0 +1,21 @@
+﻿{
+  "BackgroundImageAbsolutePath": "c:\\users\\11427\\appdata\\local\\microsoft\\visualstudio\\16.0_ba7c2536\\extensions\\4a5xvu3k.cs3\\Images\\background.png",
+  "BackgroundImagesDirectoryAbsolutePath": "c:\\users\\11427\\appdata\\local\\microsoft\\visualstudio\\16.0_ba7c2536\\extensions\\4a5xvu3k.cs3\\Images",
+  "ExpandToIDE": false,
+  "Extensions": ".png, .jpg, .gif, .bmp",
+  "ImageBackgroundType": 0,
+  "ImageFadeAnimationInterval": "PT0S",
+  "ImageStretch": 0,
+  "LoopSlideshow": true,
+  "MaxHeight": 0,
+  "MaxWidth": 0,
+  "Opacity": 0.35,
+  "PositionHorizon": 1,
+  "PositionVertical": 1,
+  "ShuffleSlideshow": false,
+  "SoftEdgeX": 0,
+  "SoftEdgeY": 0,
+  "UpdateImageInterval": "PT1M",
+  "ViewBoxPointX": 0,
+  "ViewBoxPointY": 0
+}

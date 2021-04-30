@@ -6,14 +6,25 @@
 	- [**练习 1.4**](#练习-14)
 	- [**练习 1.5**](#练习-15)
 	- [**练习 1.6**](#练习-16)
-	- [**练习1.7**](#练习17)
+	- [**练习 1.7**](#练习-17)
 	- [**练习 1.8**](#练习-18)
-	- [**练习1.9**](#练习19)
-	- [**练习1.10**](#练习110)
+	- [**练习 1.9**](#练习-19)
+	- [**练习 1.10**](#练习-110)
 	- [**练习 1.11**](#练习-111)
-	- [**练习1.12**](#练习112)
-	- [**练习1.13**](#练习113)
-	- [**练习1.14**](#练习114)
+	- [**练习 1.12**](#练习-112)
+	- [**练习 1.13**](#练习-113)
+	- [**练习 1.14**](#练习-114)
+	- [**练习 1.15**](#练习-115)
+	- [**练习 1.16**](#练习-116)
+	- [**练习 1.17**](#练习-117)
+	- [**练习 1.18**](#练习-118)
+	- [**练习 1.19**](#练习-119)
+	- [**练习 1.20**](#练习-120)
+	- [**练习 1.21**](#练习-121)
+	- [**练习 1.22**](#练习-122)
+	- [**练习 1.23**](#练习-123)
+	- [**练习 1.24**](#练习-124)
+	- [**练习 1.25**](#练习-125)
 - [第2章 变量和基本类型](#第2章-变量和基本类型)
 
 ## 第1章 开始
@@ -126,7 +137,7 @@ std::cout << "The sum of " << v1
 		<< " is " << v1 + v2 << std::endl;
 ```
 ***
-### **练习1.7**
+### **练习 1.7**
 >编译一个包含不正确的嵌套注释的程序，观察编译器返回的错误信息。  
 Code:
 ```c++
@@ -160,7 +171,7 @@ Result:
 	std::cout <</*"*/"*/";
 ```
 ***
-### **练习1.9**
+### **练习 1.9**
 >编写程序，使用while循环将 50 到100 的整数相加。
 
 Code:
@@ -179,7 +190,7 @@ int main() {
 Result:
 ![1 9](img/1-9.png)
 ***
-### **练习1.10**
+### **练习 1.10**
 >除了++运算符将运算对象的值增加 1 之外，还有一个递减运算符（—）实现将值减少 1。编写程序，使用递减运算符在循环中按递减顺序打印出 10 到 0 之间的整数。
 
 Code:
@@ -216,7 +227,7 @@ int main() {
 ```
 ![1 11](img/1-11.png)
 ***
-### **练习1.12**
+### **练习 1.12**
 >下面的 for 循环完成了什么功能?sum的终值是多少?
 >```c++
 >int sum = 0;
@@ -225,7 +236,7 @@ int main() {
 
 完成了-100-100的累加，结果为0。
 ***
-### **练习1.13**
+### **练习 1.13**
 >使用 for循环重做1.4.1 节中的所有练习（第 11 页）。
 
 Code:
@@ -249,12 +260,269 @@ int main() {
 	return 0;
 }
 ```
-### **练习1.14**
+Result:
+![1 15](img/1-13.png)
+### **练习 1.14**
 >对比 for 循环和 while 循环，两种形式的优缺点各是什么?
 
 
 for相比while可以更规范的实现迭代器的初始化和迭代，更适用于“检测变量，递增变量”的模式。  
 while相比for使用起来也更轻便，而且可以设置多种迭代变化，更加灵活。
+
+***
+### **练习 1.15**
+>编写程序，包含第 14 页"再探编译"中讨论的常见错误。熟悉编译器生成的错误信息。
+```c++
+#include<iostream>
+//语法错误示范
+//正确示范
+//int main() {
+//错误示范：main的参数列表漏掉了
+int main（{
+	//正确示范
+	//std::cout << "Read each file." << std::endl;
+	//错误示范：endl后使用了冒号而非分号
+	std::cout<<"Read each file."<<std::endl:
+	//正确示范
+	//std::cout << "Update master" << std::endl;
+	//错误示范
+	std::cout << Update master << std::end1;
+	//正确示范
+	//std::cout << "Write new master" << std::endl;
+	//错误示范：漏掉了第二个输出运算符
+	std::cout << "Write new master." std::endl;
+	
+	//类型错误示范
+	int a = 10;
+	//错误将字符串传给int
+	a = "hello";
+
+	//声明错误
+	int v1 = 0, v2 = 0;
+	std::cin >> v >> v2;
+	cout << v1 + v2 << std::endl;
+	//正确示范
+	//return 0;
+	//错误示范
+	return 0
+}
+```
+Result:
+![1 15](img/1-15.png)
+***
+### **练习 1.16**
+>编写程序，从cin读取一组数，输出其和。
+
+Code:
+```c++
+#include<iostream>
+int main() {
+	int v=0, sum=0;
+	while (std::cin >> v)
+		sum += v;
+	std::cout << "sun is " << sum << std::endl;
+	return 0;
+}
+```
+Result:
+![](img/1-16.png)
+***
+### **练习 1.17**
+>如果输入的所有值都是相等的，本节的程序会输出什么?如果没有重复值，输出又会是怎样的?
+
+当输入的所有值相等时输出的是，其中n是输入的值，m为输入的个数、
+```
+n occurs m times
+```
+当输入都不重复时，其中n为每一个输入的值
+```
+n occurs 1 times
+```
+***
+### **练习 1.18**
+>编译并运行本节的程序，给它输入全都相等的值。再次运行程序，输入没有重复的值。
+
+Code：
+```c++
+#include<iostream>
+int main() {
+	int currVal = 0, val= 0;
+	if (std::cin >> currVal) {
+		int cnt = 1;
+		while (std::cin >> val) {
+			if (val == currVal) {
+				cnt++;
+			}
+			else {
+				std::cout << currVal << " occurs " << cnt << " times " << std::endl;
+				currVal = val;
+				cnt = 1;
+			}
+		}
+		std::cout << currVal << " occurs " << cnt << " times " << std::endl;
+	}
+	return 0;
+}
+```
+Result:  
+![1 18 1](img/1-18-1.png)
+![1 18 2](img/1-18-2.png)
+***
+### **练习 1.19**
+>修改你为1.4.1 节练习1.10（第 11 页）所编写的程序（打印一个范围内的数），使其能处理用户输入的第一个数比第二个数小的情况。
+
+(感觉题目错了，第一应该是1.11,第二应该是第一个比第二个大的情况)  
+Code:
+```c++
+#include<iostream>
+int main() {
+	int l = 0, r = 0;
+	std::cout << "Enter two numbers,I will return the numbers between them." << std::endl;
+	std::cin >> l >> r;
+	if (l > r) {
+		int t = l;
+		l = r;
+		r = t;
+	}
+	while (l <= r) {
+		std::cout << l++ << " ";
+	}
+	std::cout << std::endl;
+	return 0;
+}
+```
+
+Result:  
+![1 19](img/1-19.png)
+***
+### **练习 1.20**
+>在网站 http∶//www.informit.com/title/0321714113 上，第1章的代码目录中包含了头文件 Sales item.h。将它拷贝到你自己的工作目录中。用它编写一个程序，读取一组书籍销售记录，将每条记录打印到标准输出上。
+
+Code:
+```c++
+#include <iostream>
+#include "Sales_item.h"
+int main() {
+	Sales_item item;
+	int i=1;
+	while (std::cin >> item) {
+		std::cout << "第" << i++ << "条记录是" << item << std::endl;
+	}
+	return 0;
+}
+```
+Result:
+![1 20](img/1-20.png)
+
+***
+### **练习 1.21**
+>编写程序，读取两个 工SBN 相同的 Sales item 对象，输出它们的和。
+
+Code:
+```c++
+#include <iostream>
+#include "Sales_item.h"
+int main() {
+	Sales_item item1,item2;
+	std::cin >> item1 >> item2;
+	if (item1.isbn() == item2.isbn()) {
+		std::cout << item1 + item2 << std::endl;
+		return 0;
+	}
+	else {
+		std::cerr << "Data must be the same ISNB" << std::endl;
+		return -1;
+	}
+}
+```
+
+Result:
+![1 21](img/1-21.png)
+***
+### **练习 1.22**
+>编写程序，读取多个具有相同ISBN 的销售记录，输出所有记录的和。
+
+Code:
+```c++
+#include <iostream>
+#include "Sales_item.h"
+int main() {
+	Sales_item total,item;
+	if (std::cin >> total) {
+		while (std::cin >> item) {
+			if (total.isbn() == item.isbn()) {
+				total += item;
+			}
+			else {
+				std::cout << "sum is " << total << std::endl;
+				total = item;
+			}
+		}
+		std::cout << "sum is " << total << std::endl;
+		return 0;
+	}
+	else {
+		std::cerr << "数据不足量" << std::endl;
+		return -1;
+	}
+}
+```
+Result:
+![](img/1-22.png)
+*小问题：现在这样的输入输出略丑，能不能实现在输入完成后再输出？*
+***
+### **练习 1.23**
+>编写程序，读取多条销售记录，并统计每个ISBN（每本书）有几条销售记录。
+
+Code:
+```c++
+#include <iostream>
+#include "Sales_item.h"
+int main() {
+	Sales_item total, item;
+	int cnt = 1;
+	if (std::cin >> total) {
+		while (std::cin >> item) {
+			
+			if (total.isbn() == item.isbn()) {
+				cnt++;
+			}
+			else {
+				std::cout << "ISBN为" <<total.isbn()<<"的记录有"<< cnt <<"条"<< std::endl;
+				total = item;
+				cnt = 1;
+			}
+		}
+		std::cout << "ISBN为" << total.isbn() << "的记录有" << cnt << "条" << std::endl;
+		return 0;
+	}
+	else {
+		std::cerr << "数据不足量" << std::endl;
+		return -1;
+	}
+}
+```
+
+Result:
+![](img/1-23.png)
+***
+### **练习 1.24**
+>输入表示多个 ISBN 的多条销售记录来测试上一个程序，每个ISBN 的记录应该聚在一起。
+
+没怎么看出来和上题有什么区别，可能是想让我们练练文件重定向？
+要是不用vs的话可以直接 
+```bash
+[编译出来的exe程序名] <in.txt >out.txt
+```
+vs话得打开 项目-属性-配置属性-调试-命令参数 中输入<in.txt >out.txt，再在in.txt中输入数据，即可，如图：
+![](img/1-24-1.png)
+
+Result:
+![](img/1-24-2.png)
+***
+### **练习 1.25**
+>借助网站上的 Sales item.h头文件，编译并运行本节给出的书店程序。
+目测和我写的1.22差不多，不赘述了。
 
 ***
 ## 第2章 变量和基本类型
