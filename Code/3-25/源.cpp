@@ -15,6 +15,8 @@ int main() {
 	while (cin >> grade) {
 		if (grade <= 100) {
 			//++scores[grade / 10];
+			//很奇怪的是不能写
+			//* (b + grade / 10) ++;
 			*(b + grade / 10)+=1;
 		}
 			
