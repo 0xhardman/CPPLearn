@@ -65,7 +65,53 @@
 	- [**练习 2.39**](#练习-239)
 	- [**练习 2.40**](#练习-240)
 	- [**练习 2.41**](#练习-241)
-- [**练习 2.42**](#练习-242)
+	- [**练习 2.42**](#练习-242)
+- [# 第三章 字符串、向量和数组](#-第三章-字符串向量和数组)
+	- [**练习3.1**](#练习31)
+	- [**练习3.2**](#练习32)
+	- [**练习3.3**](#练习33)
+	- [**练习3.4**](#练习34)
+	- [**练习3.5**](#练习35)
+	- [**练习3.6**](#练习36)
+	- [**练习3.7**](#练习37)
+	- [**练习3.8**](#练习38)
+	- [**练习3.9**](#练习39)
+	- [**练习3.10**](#练习310)
+	- [**练习3.11**](#练习311)
+	- [**练习3.12**](#练习312)
+	- [**练习3.13**](#练习313)
+	- [**练习3.14**](#练习314)
+	- [**练习3.15**](#练习315)
+	- [**练习3.16**](#练习316)
+	- [**练习3.17**](#练习317)
+	- [**练习3.18**](#练习318)
+	- [**练习3.19**](#练习319)
+	- [**练习3.20**](#练习320)
+	- [**练习3.21**](#练习321)
+	- [**练习3.22**](#练习322)
+	- [**练习3.23**](#练习323)
+	- [**练习3.24**](#练习324)
+	- [**练习3.25**](#练习325)
+	- [**练习3.26**](#练习326)
+	- [**练习3.27**](#练习327)
+	- [**练习3.28**](#练习328)
+	- [**练习3.29**](#练习329)
+	- [**练习3.30**](#练习330)
+	- [**练习3.31**](#练习331)
+	- [**练习3.32**](#练习332)
+	- [**练习3.33**](#练习333)
+	- [**练习3.34**](#练习334)
+	- [**练习3.35**](#练习335)
+	- [**练习3.36**](#练习336)
+	- [**练习3.37**](#练习337)
+	- [**练习3.38**](#练习338)
+	- [**练习3.39**](#练习339)
+	- [**练习3.40**](#练习340)
+	- [**练习3.41**](#练习341)
+	- [**练习3.42**](#练习342)
+	- [**练习3.43**](#练习343)
+	- [**练习3.44**](#练习344)
+	- [**练习3.45**](#练习345)
 
 ## 第1章 开始
 ### **练习 1.1**
@@ -1189,8 +1235,860 @@ int main() {
 
 测试过了，没啥问题。
 ***
-## **练习 2.42**
+### **练习 2.42**
 >根据你自己的理解重写一个Sales_data.h头文件，并以此为基础重做2.6.2节（第67页）的练习。
 
 感觉和上题差不多啊，吧struct的东西丢同名.h文件里然后include下就ok吧。不写了
+
 ***
+
+## # 第三章 字符串、向量和数组
+
+### **练习3.1**
+
+>使用恰当的using 声明重做 1.4.1节和2.6.2节的练习。
+```cpp
+#include<iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+int main() {
+	int i = 0, l = 0, r = 0, sum = 0;
+	cout << "for实现1.9" << endl;
+	for (i = 50; i <= 100; i++) {
+		sum += i;
+	}
+	cout << "50-100整数之和为" << sum << endl << "for实现1.10" << endl;
+	for (i = 10; i >= 0; i--) {
+		cout << i << " ";
+	}
+	cout << endl << "for实现1.11" << endl << "请输入两个整数,此处将输出二者间的所有整数" << endl;
+	cin >> l >> r;
+	for (; l <= r; l++) {
+		cout << l << " ";
+	}
+	return 0;
+}
+```
+```cpp
+#include<iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+struct Sale_data
+{
+    std::string isbn;
+    unsigned units_sold = 0;
+    double price = 0.0;
+    double revenue = 0.0;
+};
+//1.5.1
+//int main() {
+//    Sale_data data;
+//    while (cin >> data.isbn >> data.units_sold >> data.price) {
+//        data.revenue = data.units_sold * data.price;
+//        cout << data.isbn 
+//            << " "<< data.units_sold 
+//            << " " << data.revenue 
+//            << " " << data.price
+//            << endl;
+//    }
+//	return 0;
+//}
+//1.5.2
+//int main() {
+//    Sale_data data1, data2;
+//    cin >> data1.isbn >> data1.units_sold >> data1.price;
+//    cin >> data2.isbn >> data2.units_sold >> data2.price;
+//    data1.revenue = data1.price * data1.units_sold;
+//    data2.revenue = data2.price * data2.units_sold;
+//    Sale_data sum;
+//    if (data1.isbn == data2.isbn) {
+//        sum.isbn = data1.isbn;
+//        sum.units_sold = data1.units_sold + data2.units_sold;
+//        sum.revenue = data1.revenue + data2.revenue;
+//        sum.price = sum.revenue / sum.units_sold;
+//    }
+    //cout << sum.isbn << " "
+    //    << sum.units_sold << " "
+    //    << sum.revenue << " "
+    //    << sum.price << endl;
+//    
+//    return 0;
+//}
+
+//1.6
+int main() {
+    Sale_data total, curr;
+    if (cin >> total.isbn >> total.units_sold >> total.price) {
+        total.revenue = total.units_sold * total.price;
+        while (cin >> curr.isbn >> curr.units_sold >> curr.price) {
+            if (total.isbn == curr.isbn) {
+                curr.revenue = curr.units_sold * curr.price;
+                total.revenue += curr.revenue;
+                total.units_sold += curr.units_sold;
+                total.price = total.revenue / total.units_sold;
+            }
+            else {
+                cout << total.isbn << " "
+                    << total.units_sold << " "
+                    << total.revenue << " "
+                    << total.price << endl;
+                total.isbn = curr.isbn;
+                total.units_sold = curr.units_sold;
+                total.price = curr.price;
+                total.revenue = curr.price * curr.units_sold;
+            }
+
+        }
+        cout << total.isbn << " "
+            << total.units_sold << " "
+            << total.revenue << " "
+            << total.price << endl;
+    }
+    else {
+        cout << "数据量不足" << endl;
+    }
+}
+```
+就加上using相关语句后替换一下就好，测试了没问题，结果就不放了。
+***
+### **练习3.2**
+>编写一段程序从标准输入中一次读入一行，然后修改该程序使其一次读入一个词。
+
+Code:
+```cpp
+#include<iostream>
+#include<string>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+int main() {
+	string str;
+	//按句输入
+	while (getline(cin, str)) {
+	//按词输入
+	//while (cin>>str) {
+		cout << "读入了 " << str << endl;
+	}
+	return 0;
+}
+```
+
+Result:  
+![](img/3-02-01.png)
+![](img/3-02-02.png)
+
+***
+### **练习3.3**
+>请说明string类的输入运算符和getline函数分别是如何处理空白字符的。
+
+输入运算符在执行读取操作时，会自动忽略开头的空白符，当从非空白符算起读入下一个空白符时停止。
+getline会一直读取到换行符，再将除了换行符的所有字符存入string对象中。
+
+***
+### **练习3.4**
+>编写一段程序读取两个字符串，比较其是否相等并输出结果。如果不相等，输出比较大的那个字符串。改写上述程序，比较输入的两个字符串是否等长，如果不等长，输出长度较大的那个字符串。
+
+Code:
+```cpp
+#include<iostream>
+#include<string>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+int main() {
+	string str1, str2;
+	cout << "Please enter the first string"<<endl;
+	getline(cin, str1);
+	cout << "Please enter the second string"<<endl;
+	getline(cin, str2);
+	//比较相等
+	cout << "compare content" << endl;
+	if (str1 == str2) {
+		cout << "They are same as each other"<<endl;
+	}
+	else {
+		cout << "The bigger one is ";
+		if (str1 > str2)
+			cout << str1 << endl;
+		else
+			cout << str2 << endl;
+	}
+	//比较长短
+	cout << "compare length" << endl;
+	if (str1.size() == str2.size()) {
+		cout << "They have same length" << endl;
+	}
+	else {
+		cout << "The bigger one is ";
+		if(str1.size()>str1.size())
+			cout << str1 << endl;
+		else
+			cout << str2 << endl;
+	}
+
+	return 0;
+}
+```
+Result:  
+![](img/3-04-01.png)
+![](img/3-04-02.png)
+
+
+***
+### **练习3.5**
+>编写一段程序从标准输入中读入多个字符串并将他们连接起来，输出连接成的大字符串。然后修改上述程序，用空格把输入的多个字符串分割开来。
+
+Code:
+```cpp
+#include<iostream>
+#include<string>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+int main() {
+	string curr,res1,res2;
+	while (cin >> curr) {
+		res1 += curr;
+		res2 += curr + ' ';
+	}
+	cout << "连接起来为" << res1 << endl;
+	cout << "空格连接起来" << res2 << endl;
+}
+```
+Result:
+![](img/3-05.png)
+
+***
+### **练习3.6**
+>编写一段程序，使用范围for语句将字符串内所有字符用X代替。
+
+Code:
+```cpp
+#include<iostream>
+#include<string>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+int main() {
+	string str;
+	cin >> str;
+	for (auto &ch:str) {
+		ch = 'x';
+	}
+	cout << str << endl;
+	return 0;
+}
+```
+
+Result:
+![](img/3-06.png)
+
+***
+### **练习3.7**
+>就上一题完成的程序而言，如果将循环控制的变量设置为char将发生什么？先估计一下结果，然后实际编程进行验证。
+
+预期不会有什么影响，因为auto实际上会识别为char
+
+code:
+```cpp
+#include<iostream>
+#include<string>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+int main() {
+	string str;
+	cin >> str;
+	for (char& ch : str) {
+		ch = 'x';
+	}
+	cout << str << endl;
+	return 0;
+}
+```
+Result:  
+![](img/3-07.png)
+
+***
+### **练习3.8**
+>分别用while循环和传统for循环重写第一题的程序，你觉得哪种形式更好呢？为什么？
+
+Code:
+```cpp
+#include<iostream>
+#include<string>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+int main() {
+	string str;
+	cin >> str;
+	decltype(str.size()) i = 0;
+	while (i != str.size()) {
+		str[i] = 'x';
+		i++;
+	}
+	cout << str << endl;
+	for (i = 0; i != str.size();i++) {
+		str[i] = 'y';
+	}
+	cout << str << endl;
+	return 0;
+}
+```
+
+Result:  
+![](img/3-08.png)
+
+我认为for更好，因为for更好看，且本题更贴合for检测变量，递增变量的逻辑。
+***
+### **练习3.9**
+>下面的程序有何作用？它合法吗？如果不合法？为什么？
+>```cpp
+>string s;
+>cout << s[0] << endl;
+>```
+输出字符串s索引为0的字符，不合法，因为s为空串没有索引为0的字符。
+
+***
+### **练习3.10**
+>编写一段程序，读入一个包含标点符号的字符串，将标点符号去除后输出字符串剩余的部分。
+
+Code:
+```cpp
+#include<iostream>
+#include<string>
+#include<cctype>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+int main() {
+	string str="hellow!beautiful*World!",res;
+	cout << str << endl;
+	for (auto ch : str) 
+		if (!ispunct(ch))
+			res += ch;
+	cout << res << endl;
+	return 0;
+}
+```
+
+Result:  
+![](img/3-10.png)
+***
+### **练习3.11**
+>下面的范围for语句合法吗？如果合法，c的类型是什么？
+>
+>```cpp
+>const string s = "Keep out!";
+>for(auto &c : s){ /* ... */ }
+>```
+
+合法，因为c是const char &所以如果代码块里有给c赋值的内容就是非法的，反之。
+***
+### **练习3.12**
+>下列vector对象的定义有不正确的吗？如果有，请指出来。对于正确的，描述其执行结果；对于不正确的，说明其错误的原因。
+>
+>```cpp
+>vector<vector<int>> ivec;         // 在C++11当中合法
+>vector<string> svec = ivec;       // 不合法，类型不一样
+>vector<string> svec(10, "null");  // 合法
+>```
+***
+### **练习3.13**
+>下列的vector对象各包含多少个元素？这些元素的值分别是多少？
+>
+>```cpp
+>vector<int> v1;         // size:0,  no values.
+>vector<int> v2(10);     // size:10, value:0
+>vector<int> v3(10, 42); // size:10, value:42
+>vector<int> v4{ 10 };     // size:1,  value:10
+>vector<int> v5{ 10, 42 }; // size:2,  value:10, 42
+>vector<string> v6{ 10 };  // size:10, value:""
+>vector<string> v7{ 10, "hi" };  // size:10, value:"hi"
+>```
+***
+### **练习3.14**
+>编写一段程序，用cin读入一组整数并把它们存入一个vector对象。
+```cpp
+#include<vector>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+using std::vector;
+int main() {
+	vector<int> nums;
+	int tmp;
+	while (cin >> tmp) {
+		nums.push_back(tmp);
+	}
+	return 0;
+}
+```
+***
+### **练习3.15**
+>改写上题程序，不过这次读入的是字符串。
+```cpp
+#include<iostream>
+#include<string>
+#include<cctype>
+#include<vector>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+using std::vector;
+int main() {
+	vector<string> text;
+	string word;
+	while (cin >> word) {
+		text.push_back(word);
+	}
+	return 0;
+}
+```
+***
+### **练习3.16**
+>编写一段程序，把练习3.13中vector对象的容量和具体内容输出出来
+
+Code:
+```cpp
+#include<iostream>
+#include<string>
+#include<cctype>
+#include<vector>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+using std::vector;
+int main() {
+	vector<int> nums;
+	int num;
+	while (cin >> num) {
+		nums.push_back(num);
+	}
+	for (auto num : nums) {
+		cout << num << endl;
+	}
+	return 0;
+}
+```
+
+Result:  
+![](img/3-16.png)
+***
+### **练习3.17**
+>从cin读入一组词并把它们存入一个vector对象，然后设法把所有词都改为大写形式。输出改变后的结果，每个词占一行。
+
+Code:
+```cpp
+#include<iostream>
+#include<string>
+#include<cctype>
+#include<vector>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+using std::vector;
+int main() {
+	vector<string> text;
+	string word;
+	while (cin >> word) {
+		text.push_back(word);
+	}
+
+	for (auto& word : text) {
+		for (auto& ch : word) {
+			ch = toupper(ch);
+		}
+	}
+
+	for (auto word : text) {
+		cout << word << endl;
+	}
+	return 0;
+}
+```
+
+Result:  
+
+***
+### **练习3.18**
+>下面的程序合法吗？如果不合法，你准备如何修改？
+>
+>```cpp
+>vector<int> ivec;
+>ivec[0] = 42;
+>```
+
+不合法，我将改为：
+```cpp
+vector<int> ivec;
+ivec.push_back(42);
+```
+***
+### **练习3.19**
+>如果想定义一个含有10个元素的vector对象，所有元素的值都是42，请例举三种不同的实现方法，哪种方式更好呢？
+
+如下三种：
+
+```cpp
+vector<int> ivec1(10, 42);
+vector<int> ivec2{ 42, 42, 42, 42, 42, 42, 42, 42, 42, 42 };
+vector<int> ivec3;
+for (int i = 0; i < 10; ++i)
+	ivec3.push_back(42);
+```
+第一种最好，方便。
+
+***
+### **练习3.20**
+>读入一组整数并把他们存入一个vector对象，将每对相邻整数的和输出出来。改写你的程序，这次要求先输出第一个和最后一个元素的和，接着输出第二个和倒数第二个元素的和，以此类推。
+
+Code:
+```cpp
+#include<iostream>
+#include<string>
+#include<cctype>
+#include<vector>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+using std::vector;
+int main() {
+	vector<int> nums,res1,res2;
+	int num;
+	while (cin >> num) {
+		nums.push_back(num);
+	}
+	for (decltype(nums.size()) i=0; i != nums.size()-1;i++) {
+		res1.push_back(nums[i] + nums[i + 1]);
+	}
+	cout << "相邻数的和"<<endl;
+	for (auto num : res1) {
+		cout << num << " ";
+	}
+	cout << endl;
+	cout << "首尾数的和" << endl;
+	for (decltype(nums.size()) i = 0; i <= (nums.size() +1)/2; i++) {
+		res2.push_back(nums[i] + nums[nums.size()-1-i]);
+	}
+	for (auto num : res2) {
+		cout << num << " ";
+	}
+	cout << endl;
+	return 0;
+}
+```
+
+Result:  
+![](img/3-20.png)
+***
+### **练习3.21**
+>请使用迭代器重做3.3.3节的第一个练习。
+
+Code:
+```cpp
+#include<iostream>
+#include<string>
+#include<cctype>
+#include<vector>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+using std::vector;
+int main() {
+	vector<int> nums;
+	int num;
+	while (cin >> num) {
+		nums.push_back(num);
+	}
+	auto b = nums.cbegin(),e=nums.cend();
+	while (b != e) {
+		cout << *b << endl;
+		b++;
+	}
+	return 0;
+}
+```
+Result:  
+![](img/3-21.png)
+
+***
+### **练习3.22**
+>修改之前那个输出text第一段的程序，首先把text的第一段全部改成大写形式，然后输出它。
+
+Code:
+```cpp
+#include<iostream>
+#include<string>
+#include<cctype>
+#include<vector>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+using std::vector;
+int main() {
+	vector<string> text = {"Hellow world! I'm C++!","","Hava a nice day!"};
+
+	for (auto it = text.begin(); it != text.end() && !it->empty(); it++) 
+		for (auto ch = (*it).begin(); ch != it->end(); ch++) 
+			*ch = toupper(*ch);
+	
+	for (auto it = text.cbegin(); it != text.cend(); it++)
+		cout << *it << endl;
+	
+	return 0;
+}
+```
+
+Result:  
+![](img/3-22.png)
+
+***
+### **练习3.23**
+>编写一段程序，创建一个含有10个整数的vector对象，然后使用迭代器将所有元素的值都变成原来的两倍。输出vector对象的内容，检验程序是否正确。
+
+Code:
+```cpp
+#include<iostream>
+#include<string>
+#include<cctype>
+#include<vector>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+using std::vector;
+int main() {
+	vector<int> nums{ 1,2,3,4,5,6,7,8,9,10 };
+	for(auto b=nums.begin();b<nums.end();b++)
+		(*b) *= 2;
+
+	auto b = nums.cbegin(), e = nums.cend();
+	while (b != e) {
+		cout << *b << endl;
+		b++;
+	}
+	return 0;
+}
+```
+
+Result:  
+![](img/3-23.png)
+
+***
+### **练习3.24**
+>请使用迭代器重做3.3.3节的最后一个练习。
+
+Code:
+```cpp
+#include<iostream>
+#include<string>
+#include<cctype>
+#include<vector>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+using std::vector;
+int main() {
+	vector<int> nums{1,2,8,4,5}, res1, res2;
+	for (auto num = nums.begin(); num != nums.end() - 1; num++) {
+		res1.push_back(*num + *(num+1));
+	}
+	cout << "相邻数的和" << endl;
+	for (auto num = res1.cbegin(); num != res1.cend(); num++) {
+		cout << *num << " ";
+	}
+	cout << endl;
+	cout << "首尾数的和" << endl;
+	for (auto numL = nums.begin(),numR=nums.end()-1; numL<=numR ; numL++,numR--) {
+		res2.push_back(*numR + *numL);
+	}
+	for (auto num = res2.cbegin(); num != res2.cend(); num++) {
+		cout << *num << " ";
+	}
+	cout << endl;
+	return 0;
+}
+```
+
+Result:  
+![](img/3-24.png)
+
+
+***
+### **练习3.25**
+>3.3.3节划分分数段的程序是使用下标运算符实现的，请利用迭代器改写该程序实现完全相同的功能。
+
+Code:
+```cpp
+#include<iostream>
+#include<string>
+#include<cctype>
+#include<vector>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+using std::vector;
+//42 65 95 100 39 67 95 76 88 76 83 92 76 93
+int main() {
+	vector<unsigned> scores(11,0);
+	unsigned grade;
+	auto b = scores.begin();
+	while (cin >> grade) {
+		if (grade <= 100) {
+			//++scores[grade / 10];
+			//很奇怪的是不能写
+			//* (b + grade / 10) ++;
+			*(b + grade / 10)+=1;
+		}
+			
+	}
+	for (auto b = scores.cbegin(); b != scores.cend(); b++) {
+		cout << *b << " ";
+	}
+	cout << endl;
+	return 0;
+}
+```
+Result:  
+![](img/3-25.png)
+
+
+***
+### **练习3.26**
+>在100页的二分搜索程序中，为什么用的是 `mid = beg + (end - beg) / 2`, 而非 `mid = (beg + end) / 2 ;` ?
+
+beg个end相加毫无意义，且没有迭代器相加的运算。
+***
+### **练习3.27**
+>假设`txt_size`是一个无参函数，它的返回值是`int`。请回答下列哪个定义是非法的，为什么？
+>```cpp
+>unsigned buf_size = 1024;
+>(a) int ia[buf_size];
+>(b) int ia[4 * 7 - 14];
+>(c) int ia[txt_size()];
+>(d) char st[11] = "fundamental";
+>```
+***
+### **练习3.28**
+>下列数组中元素的值是什么？
+>```cpp
+>string sa[10];
+>int ia[10];
+>int main() {
+>	string sa2[10];
+>	int ia2[10];
+>}
+>```
+
+***
+### **练习3.29**
+>相比于vector 来说，数组有哪些缺点，请例举一些。
+
+
+***
+### **练习3.30**
+>指出下面代码中的索引错误。
+>
+>```cpp
+>constexpr size_t array_size = 10;
+>int ia[array_size];
+>for (size_t ix = 1; ix <= array_size; ++ix)
+>	ia[ix] = ix;
+>```
+
+***
+### **练习3.31**
+>编写一段程序，定义一个含有10个int的数组，令每个元素的值就是其下标值。
+
+***
+### **练习3.32**
+>将上一题刚刚创建的数组拷贝给另一数组。利用vector重写程序，实现类似的功能。
+
+***
+### **练习3.33**
+>对于104页的程序来说，如果不初始化scores将会发生什么？
+
+***
+### **练习3.34**
+>假定`p1` 和 `p2` 都指向同一个数组中的元素，则下面程序的功能是什么？什么情况下该程序是非法的？
+>```cpp
+>p1 += p2 - p1;
+>```
+
+***
+### **练习3.35**
+>编写一段程序，利用指针将数组中的元素置为0。
+
+***
+### **练习3.36**
+>编写一段程序，比较两个数组是否相等。再写一段程序，比较两个vector对象是否相等。
+
+
+***
+### **练习3.37**
+>下面的程序是何含义，程序的输出结果是什么？
+>```cpp
+>const char ca[] = { 'h', 'e', 'l', 'l', 'o' };
+>const char *cp = ca;
+>while (*cp) {
+>    cout << *cp << endl;
+>    ++cp;
+>}
+>```
+
+***
+### **练习3.38**
+>在本节中我们提到，将两个指针相加不但是非法的，而且也没有什么意义。请问为什么两个指针相加没有意义？
+
+***
+### **练习3.39**
+>编写一段程序，比较两个 `string` 对象。再编写一段程序，比较两个C风格字符串的内容。
+
+***
+### **练习3.40**
+>编写一段程序，定义两个字符数组并用字符串字面值初始化它们；接着再定义一个字符数组存放前面两个数组连接后的结果。使用`strcpy`和`strcat`把前两个数组的内容拷贝到第三个数组当中。
+
+***
+### **练习3.41**
+>编写一段程序，用整型数组初始化一个vector对象。
+
+***
+### **练习3.42**
+>编写一段程序，将含有整数元素的 `vector` 对象拷贝给一个整型数组。
+
+
+***
+### **练习3.43**
+>编写3个不同版本的程序，令其均能输出`ia`的元素。
+>版本1使用范围`for`语句管理迭代过程；版本2和版本3都使用普通`for`语句，其中版本2要求使用下标运算符，版本3要求使用指针。
+>此外，在所有3个版本的程序中都要直接写出数据类型，而不能使用类型别名、`auto`关键字和`decltype`关键字。
+
+
+***
+### **练习3.44**
+>改写上一个练习中的程序，使用类型别名来代替循环控制变量的类型。
+
+
+***
+### **练习3.45**
+>再一次改写程序，这次使用 `auto` 关键字。
