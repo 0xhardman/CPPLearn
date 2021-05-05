@@ -1983,27 +1983,29 @@ beg个end相加毫无意义，且没有迭代器相加的运算。
 >假设`txt_size`是一个无参函数，它的返回值是`int`。请回答下列哪个定义是非法的，为什么？
 >```cpp
 >unsigned buf_size = 1024;
->(a) int ia[buf_size];
->(b) int ia[4 * 7 - 14];
->(c) int ia[txt_size()];
->(d) char st[11] = "fundamental";
+>(a) int ia[buf_size];//非法，buf_size 非常量
+>(b) int ia[4 * 7 - 14];//合法
+>(c) int ia[txt_size()];//非法，返回值是int非const int
+>(d) char st[11] = "fundamental";//非法，忽略了结尾的空字符，长度应为12
 >```
 ***
 ### **练习3.28**
 >下列数组中元素的值是什么？
 >```cpp
->string sa[10];
->int ia[10];
+>string sa[10];//空字符串
+>int ia[10];//0
 >int main() {
->	string sa2[10];
->	int ia2[10];
+>	string sa2[10];//空字符串
+>	int ia2[10];//undefined
 >}
 >```
 
 ***
 ### **练习3.29**
 >相比于vector 来说，数组有哪些缺点，请例举一些。
-
+数组长度有限，操作不灵活，
+没有vector那么多的接口
+容易出bug
 
 ***
 ### **练习3.30**
@@ -2012,7 +2014,9 @@ beg个end相加毫无意义，且没有迭代器相加的运算。
 >```cpp
 >constexpr size_t array_size = 10;
 >int ia[array_size];
+>//应修改为
 >for (size_t ix = 1; ix <= array_size; ++ix)
+>//ia[ix-1]=ix;
 >	ia[ix] = ix;
 >```
 
@@ -2020,14 +2024,66 @@ beg个end相加毫无意义，且没有迭代器相加的运算。
 ### **练习3.31**
 >编写一段程序，定义一个含有10个int的数组，令每个元素的值就是其下标值。
 
+Code:
+```cpp
+#include<iostream>
+#include<string>
+#include<cctype>
+#include<vector>
+#include<cstddef>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+using std::vector;
+int main() {
+	constexpr size_t array_size = 10;
+	int ia[array_size];
+	for (size_t ix = 0; ix < array_size;ix++) {
+		ia[ix] = ix;
+	}
+	for (size_t ix = 0; ix < array_size; ix++) {
+		cout << ia[ix] << " ";
+	}
+	cout << endl;
+	return 0;
+}
+```
+
+Result:  
+![](img/3-31.png)
 ***
 ### **练习3.32**
 >将上一题刚刚创建的数组拷贝给另一数组。利用vector重写程序，实现类似的功能。
 
+Code:
+```cpp
+#include<iostream>
+#include<string>
+#include<cctype>
+#include<vector>
+#include<cstddef>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::string;
+using std::vector;
+int main() {
+	constexpr size_t array_size = 10;
+	int ia[array_size] = {0,1,2,3,4,5,6,7,8,9};
+	int ia_c[array_size];
+	for (size_t ix = 0; ix < array_size; ix++) {
+		ia_c[ix] = ia[ix];
+	}
+	vector<int> v1{ 1,2,3,4,5,6,7,8,9 };
+	vector<int> v2 = v1;
+	return 0;
+}
+```
 ***
 ### **练习3.33**
 >对于104页的程序来说，如果不初始化scores将会发生什么？
-
+不初始化的话，scores内的元素初始值全为undefined无法完成自增运算。
 ***
 ### **练习3.34**
 >假定`p1` 和 `p2` 都指向同一个数组中的元素，则下面程序的功能是什么？什么情况下该程序是非法的？
@@ -2035,15 +2091,86 @@ beg个end相加毫无意义，且没有迭代器相加的运算。
 >p1 += p2 - p1;
 >```
 
+完成使p1移动p2-p1距离，实际上就是把p2所指的元素赋值给p1
+任何情况下都是合法的
+
 ***
 ### **练习3.35**
 >编写一段程序，利用指针将数组中的元素置为0。
 
+Code:
+```cpp
+#include<iostream>
+using std::cout;
+using std::endl;
+int main() {
+	int nums[10] = {0,1,2,3,4,5,6,7,8,9};
+	for (auto p = nums; p < nums + 10; p++) {
+		*p = 0;
+	}
+	for (auto n : nums) {
+		cout << n << " ";
+	}
+	cout << endl;
+}
+```
 ***
 ### **练习3.36**
 >编写一段程序，比较两个数组是否相等。再写一段程序，比较两个vector对象是否相等。
 
+Code:
+```cpp
+#include<iostream>
+#include <vector>
+using std::vector;
+using std::begin;
+using std::end;
+using std::cout;
+using std::endl;
+int main() {
 
+	//检查数组是否相同
+	cout << "compare in array" << endl;
+	//初始化
+	int a1[3] = { 1,2,3 };
+	int a2[3] = { 1,2,3 };
+	//检查
+	auto size1 = end(a1) - begin(a1);
+	auto size2 = end(a2) - begin(a2);
+	if (size1 == size2) {
+		for (auto p1 = a1, p2 = a2; p1 < end(a1) && p2 < end(a2); p1++, p2++) {
+			if (*p1 == *p2) {
+				if (p1 == end(a1) - 1)
+					cout << "They are same!" << endl;
+				continue;
+			}
+			else {
+				cout << "They are different!" << endl;
+				break;
+			}
+		}	
+	}
+	else {
+		cout << "They are different!" << endl;
+	}
+
+	//检查vector是否相同
+	//初始化
+	cout << "compare in vector" << endl;
+	vector<int> v1 = { 1,2,3 };
+	vector<int > v2 = { 1,2,4 };
+
+	if (v1 == v2)
+		cout << "They are same!" << endl;
+	else
+		cout << "They are differrent!" << endl;
+
+	return 0;
+}
+```
+
+Result:  
+![](img/3-36.png)
 ***
 ### **练习3.37**
 >下面的程序是何含义，程序的输出结果是什么？
@@ -2056,26 +2183,119 @@ beg个end相加毫无意义，且没有迭代器相加的运算。
 >}
 >```
 
+初始化常量字符数组ca，初始化常量字符指针cp为ca的首地址，当cp指向非'\0'时输出字符并移动至下一位，但是因为没有空字符的存在，程序不会退出循环。如果有的话，最后输出“hello”
+
 ***
 ### **练习3.38**
 >在本节中我们提到，将两个指针相加不但是非法的，而且也没有什么意义。请问为什么两个指针相加没有意义？
+
+因为指针的值实际上是十六进制的物理地址，相加起来可能是另一个地址，但没什么用啊。
 
 ***
 ### **练习3.39**
 >编写一段程序，比较两个 `string` 对象。再编写一段程序，比较两个C风格字符串的内容。
 
+Code:
+```cpp
+#include<iostream>
+#include<cstring>
+using std::cout;
+using std::endl;
+using std::string;
+int main() {
+	cout << "compare by string" << endl;
+	string str1 = "Hello world!",str2="Hello world!";
+	if (str1 == str2)
+		cout << "They are same" << endl;
+	else
+		cout << "They are differrent" << endl;
+
+	cout << "compare by char array" << endl;
+	char ch1[] = "Hello world", ch2[] = "Hellow world";
+	if(strcmp(ch1,ch2)==0)
+		cout << "They are same" << endl;
+	else
+		cout << "They are different" << endl;
+
+	return 0;
+
+}
+```
+
+Result:  
+![](img/3-39.png)
+
 ***
 ### **练习3.40**
 >编写一段程序，定义两个字符数组并用字符串字面值初始化它们；接着再定义一个字符数组存放前面两个数组连接后的结果。使用`strcpy`和`strcat`把前两个数组的内容拷贝到第三个数组当中。
 
+这题有点诡异，github上其他人写的很多都会报错，在编译器提示膝盖下的代码能过，但是出现了没学过的东西。
+Code:
+```cpp
+#include<iostream>
+#include<cstring>
+using std::cout;
+using std::endl;
+int main() {
+	const char ch1[] = "hello";
+	const char ch2[] = "world";
+
+	char ch3[100];
+	strcpy_s(ch3, ch1);
+	strcat_s(ch3, ch2);
+	cout << ch3 << endl;
+	return 0;
+}
+```
+
+Result:  
+![](img/3-40.png)
 ***
 ### **练习3.41**
 >编写一段程序，用整型数组初始化一个vector对象。
 
+Code:
+```cpp
+#include<iostream>
+#include<vector>
+using std::vector;
+using std::begin;
+using std::end;
+using std::cout;
+using std::endl;
+int main() {
+	int aNums[] = {1,2,3,4,5};
+	vector<int> vNums(begin(aNums),end(aNums));
+	for (auto num : vNums)
+		cout << num << endl;
+	return 0;
+}
+```
+
+Result:  
+![](img/3-41.png)
 ***
 ### **练习3.42**
 >编写一段程序，将含有整数元素的 `vector` 对象拷贝给一个整型数组。
 
+Code:
+```cpp
+#include<iostream>
+#include<vector>
+using std::vector;
+int main() {
+	vector<int> v = { 1,2,3,4 };
+	int arr[4];
+	for (auto i = 0; i < v.size();i++)
+		arr[i] = v[i];	
+	for (auto num : arr)
+		std::cout << num << std::endl;
+	return 0;
+}
+```
+
+Result:  
+![](img/3-3-42.png)
 
 ***
 ### **练习3.43**
@@ -2083,12 +2303,120 @@ beg个end相加毫无意义，且没有迭代器相加的运算。
 >版本1使用范围`for`语句管理迭代过程；版本2和版本3都使用普通`for`语句，其中版本2要求使用下标运算符，版本3要求使用指针。
 >此外，在所有3个版本的程序中都要直接写出数据类型，而不能使用类型别名、`auto`关键字和`decltype`关键字。
 
+Code:
+```cpp
+#include<iostream>
+using std::cout;
+using std::endl;
+using std::begin;
+using std::end;
+int main() {
+	int ia[3][4] = { 
+		{0,1,2,3} ,
+		{4,5,6,7} ,
+		{8,9,10,11} 
+	};
+	//方法一，范围for
+	for (int (&row)[4] : ia)
+		for (int col : row)
+			cout << col << " ";
+	cout << endl;
+
+	//方法二，普通for，下标
+	for (size_t i = 0; i < end(ia) - begin(ia); i++)
+		for (size_t j = 0; j < end(ia[i]) - begin(ia[i]); j++)
+			cout << ia[i][j] << " ";
+	cout << endl;
+	
+	//方法三，普通for，指针
+	for(int (*p1)[4]=begin(ia);p1!=end(ia);p1++)
+		for(int *p2=begin(*p1);p2!=end(*p1);p2++)
+			cout << *p2 << " ";
+	cout << endl;
+	return 0;
+}
+```
+
+Result:  
+![](img/3-43.png)
 
 ***
 ### **练习3.44**
 >改写上一个练习中的程序，使用类型别名来代替循环控制变量的类型。
 
+Code:
+```cpp
+#include<iostream>
+using std::cout;
+using std::endl;
+using std::begin;
+using std::end;
+using Row=int[4];
+using Col = int;
+int main() {
+	int ia[3][4] = {
+		{0,1,2,3} ,
+		{4,5,6,7} ,
+		{8,9,10,11}
+	};
+	//方法一，范围for
+	for (Row &row : ia)
+		for (Col col : row)
+			cout << col << " ";
+	cout << endl;
+
+	//方法二，普通for，下标
+	for (size_t i = 0; i < end(ia) - begin(ia); i++)
+		for (size_t j = 0; j < end(ia[i]) - begin(ia[i]); j++)
+			cout << ia[i][j] << " ";
+	cout << endl;
+
+	//方法三，普通for，指针
+	for (Row *p1 = begin(ia); p1 != end(ia); p1++)
+		for (Col* p2 = begin(*p1); p2 != end(*p1); p2++)
+			cout << *p2 << " ";
+	cout << endl;
+	return 0;
+}
+```
+
+Result:  
+![](img/3-44.png)
 
 ***
 ### **练习3.45**
 >再一次改写程序，这次使用 `auto` 关键字。
+
+Code: 
+```cpp
+#include<iostream>
+using std::cout;
+using std::endl;
+using std::begin;
+using std::end;
+int main() {
+	int ia[3][4] = {
+		{0,1,2,3} ,
+		{4,5,6,7} ,
+		{8,9,10,11}
+	};
+	//方法一，范围for
+	for (auto &row : ia)
+		for (auto col : row)
+			cout << col << " ";
+	cout << endl;
+
+	//方法二，普通for，下标
+	for (size_t i = 0; i < end(ia) - begin(ia); i++)
+		for (size_t j = 0; j < end(ia[i]) - begin(ia[i]); j++)
+			cout << ia[i][j] << " ";
+	cout << endl;
+
+	//方法三，普通for，指针
+	for (auto p1 = ia; p1 != end(ia); p1++)
+		for (auto *p2 = begin(*p1); p2 != end(*p1); p2++)
+			cout << *p2 << " ";
+	cout << endl;
+	return 0;
+}
+```
