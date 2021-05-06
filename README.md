@@ -2466,6 +2466,8 @@ int main() {
 
 > 表达式 5 + 10 * 20 / 2 的求值结果是多少？
 
+105
+
 ***
 ### **练习4.2**
 
@@ -2473,10 +2475,14 @@ int main() {
 >* (a) *vec.begin()
 >* (b) *vec.begin() + 1
 
+* (a) *(vec.begin())
+* (b) (*(vec.begin())) + 1
+
 ### **练习4.3**
 
 > C++语言没有明确规定大多数二元运算符的求值顺序，给编译器优化留下了余地。这种策略实际上是在代码生成效率和程序潜在缺陷之间进行了权衡，你认为这可以接受吗？请说出你的理由。
 
+可以接受，二元运算符的数量还是很多的，如果再加上求职顺序对代码的生成效率将会产生一定影响，目前的优先级规定已基本满足需求，缺陷方面的问题也可以通过加圆括号进行完善。
 
 ***
 ### **练习4.4**
@@ -2485,32 +2491,56 @@ int main() {
 >```cpp
 >12 / 3 * 4 + 5 * 15 + 24 % 4 / 2
 >```
+
+```cpp
+(((12 / 3) * 4) + (5 * 15) + ((24 % 4) / 2))
+```
+
 ***
+
+
 
 ### **练习4.5**
 
 > 写出下列表达式的求值结果。
 >```cpp
->-30 * 3 + 21 / 5  
->-30 + 3 * 21 / 5  
->30 / 3 * 21 % 5   
->-30 / 3 * 21 % 4  
+>-30 * 3 + 21 / 5  //-86
+>-30 + 3 * 21 / 5  //-18
+>30 / 3 * 21 % 5   //0
+>-30 / 3 * 21 % 4  //-2
 >```
 ***
 ### **练习4.6**
 
 > 写出一条表达式用于确定一个整数是奇数还是偶数。
 
+```cpp
+if(a%2);
+```
+
 ***
 ### **练习4.7**
 
 > 溢出是何含义？写出三条将导致溢出的表达式。
+
+即计算结果超出该类型所能表示的范围。
+```cpp
+short svalue = 32767; ++svalue; // -32768
+unsigned uivalue = 0; --uivalue;  // 4294967295
+unsigned short usvalue = 65535; ++usvalue;  // 0
+```
 
 ***
 ### **练习4.8**
 
 > 说明在逻辑与、逻辑或及相等性运算符中运算对象的求值顺序。
 
+```cpp
+== > && > ||
+```
+逻辑与是在左值为真时才会继续求右侧运算对象的值  
+逻辑或是在左值为假时才会继续求右侧运算对象的值  
+相等性运算没有规定  
 
 ***
 ### **练习4.9**
@@ -2520,99 +2550,188 @@ int main() {
 const char *cp = "Hello World";
 if (cp && *cp)
 ```
+
+首先判断cp指针是否为空，当cp非空时才会解引用cp即\*cp检查\*cp字符串是否为空，如果非空则执行if语句块中的内容
+
 ***
 ### **练习4.10**
 
 > 为while 循环写一个条件，使其从标准输入中读取整数，遇到 42 时停止。
 
+int i;
+while(cin>>i&&i!=42)
 ***
 ### **练习4.11**
 
 > 书写一条表达式用于测试4个值a、b、c、d的关系，确保a大于b、b大于c、c大于d。
 
+if(a>b&&b>c&&c>d)
 ***
 ### **练习4.12**
 
 > 假设i、j 和k 是三个整数，说明表达式 i != j < k 的含义。
+
+即：i != (j < k)当j\<k时i不能等于1，当j\>k是i不能等于0，则满足表达式
+
 ***
+
 
 ### **练习4.13**
 
 > 在下述语句中，当赋值完成后 i 和 d 的值分别是多少？
 ```cpp
 int i;   double d;
-d = i = 3.5; 
-i = d = 3.5; 
+d = i = 3.5; //d=3.0 i=3
+i = d = 3.5; //i=3 d=3.5
 ```
+
 ***
 ### **练习4.14**
 
 > 执行下述 if 语句后将发生什么情况？
 ```cpp
-if (42 = i)   
-if (i = 42)   
+if (42 = i)   //报错
+if (i = 42)   //执行if下的语句块
 ```
 ***
 ### **练习4.15**
 
 > 下面的赋值是非法的，为什么？应该如何修改？
-```cpp
-double dval; int ival; int *pi;
-dval = ival = pi = 0;
-```
+>```cpp
+>double dval; int ival; int *pi;//pi指针类型无法通过转化得到int类型，
+>dval = ival = pi = 0;
+>```
 
+应该为
+```cpp
+double dval; int ival;
+dval = ival =0;
+```
 ***
 ### **练习4.16**
 
 > 尽管下面的语句合法，但它们实际执行的行为可能和预期并不一样，为什么？应该如何修改？
+>```cpp
+>if (p = getPtr() != 0)//因为不相等预算的优先级比赋值高
+>if (i = 1024)//赋值语句会返回左值，在该语句下，if永远成立
+>```
 ```cpp
-if (p = getPtr() != 0)
-if (i = 1024)
+if ((p = getPtr() )!= 0)
+if (i == 1024)
 ```
-
 
 ***
 ### **练习4.17**
 
 > 说明前置递增运算符和后置递增运算符的区别。
 
+前置可以理解为先加后返回
+后置可以理解为先返回后加
+
 ***
 ### **练习4.18**
 
 > 如果132页那个输出vector对象元素的while循环使用前置递增运算符，将得到什么结果？
+
+原pbeg所指的下一个元素。从第二个元素开始取值。当pebg指向最后一个元素时while内的语句块仍然会执行输出v.end()所指的内容，即未定义。
 ***
 ### **练习4.19**
 
 > 假设 ptr 的类型是指向 int 的指针、vec 的类型是vector<int>、ival 的类型是int，说明下面的表达式是何含义？如果有表达式不正确，为什么？应该如何修改？
 ```cpp
-(a) ptr != 0 && *ptr++  
-(b) ival++ && ival
-(c) vec[ival++] <= vec[ival] 
+(a) ptr != 0 && *ptr++  //ptr非空，且ptr所指的int对象非0，判断后ptr修改为下一位置
+(b) ival++ && ival//先ival是否非0，在让ival加一后判断ival是否非零（即判断ival是否是负数），即当ival大于0时判断为真
+(c) vec[ival++] <= vec[ival] //错误，两边都用到了ival且存在ival的改变，会产生未定义行为
 ```
-
+应改为：
+```cpp
+vec[ival] <= vec[ival+1]//即可判断ival所指的下一个对象是否大于上一个对象
+```
 
 ***
 ### **练习4.20**
 
 > 假设 iter 的类型是 vector<string>::iterator, 说明下面的表达式是否合法。如果合法，表达式的含义是什么？如果不合法，错在何处？
 ```cpp
-(a) *iter++;
-(b) (*iter)++;
-(c) *iter.empty();
-(d) iter->empty();
-(e) ++*iter;
-(f) iter++->empty();
+(a) *iter++;//合法，返回迭代器所指向的元素，然后迭代器递增。
+(b) (*iter)++;//不合法，string对象没有++运算
+(c) *iter.empty();//不合法，成员运算符优先级大于解引用运算符，而iter没有empty成员，应修改为(*iter).empty();
+(d) iter->empty();//合法，即访问iter所指对象的empty成员函数
+(e) ++*iter;//不合法，解引用和++运算符都是右结合运算符，而*iter(string对象)没有++操作
+(f) iter++->empty();//合法，先查询iter是否为空，再使iter递增
 ```
 
 ***
 ### **练习4.21**
 
 > 编写一段程序，使用条件运算符从 vector<int> 中找到哪些元素的值是奇数，然后将这些奇数值翻倍。
+
+Code:
+```cpp
+#include<iostream>
+#include<vector>
+using std::vector;
+using std::cout;
+using std::endl;
+int main() {
+	vector<int> nums = {0,1,2,3,4,5,6,7,8,9};
+	for (auto &num : nums) {
+		num % 2 ? num *= 2 : num=num;
+	}
+	for (auto num : nums) {
+		cout << num << endl;
+	}
+}
+```
+
+Result:  
+![](img/4-21.jpg)
+
+
 ***
 ### **练习4.22**
 > 本节的示例程序将成绩划分为high pass、pass 和 fial 三种，扩展该程序使其进一步将 60 分到 75 分之间的成绩设定为 low pass。要求程序包含两个版本：一个版本只使用条件运算符；另一个版本使用1个或多个if语句。哪个版本的程序更容易理解呢？为什么？
 
 ***
+
+Code:
+```cpp
+#include<iostream>
+#include<vector>
+#include<string>
+using std::cout;
+using std::endl;
+using std::vector;
+using std::string;
+int main() {
+	vector<int> grades = { 59,65,70,75,80,85,90,95,100 };
+	for (auto grade : grades) {
+		cout << ((grade > 90) ? "high pass" : (grade > 75) ? "pass" : (grade>60)?"low pass":"fail")<<" ";
+	}
+	cout << endl;
+
+	for (auto grade : grades) {
+		string final;
+		if (grade > 90)
+			final = "high pass";
+		else if (grade > 75)
+			final = "pass";
+		else if (grade > 60)
+			final = "low pass";
+		else
+			final = "fail";
+
+		cout << final << " ";
+	}
+	cout << endl;
+
+}
+```
+
+Result:  
+![](img/4-22.jpg)
+
+第二个版本好，很清晰
 
 ### **练习4.23**
 
@@ -2621,12 +2740,21 @@ if (i = 1024)
 string s = "word";
 string pl = s + s[s.size() - 1] == 's' ? "" : "s" ;
 ```
+
+加法运算符优先级高于相等运算符，导致出现s（字符串）和字符's'的比较导致报错，应修改为：
+```cpp
+string pl = s + (s[s.size() - 1] == 's' ? "" : "s"） ;
+```
 ***
 ### **练习4.24**
 
 > 本节的示例程序将成绩划分为 high pass、pass、和fail三种，它的依据是条件运算符满足右结合律。假如条件运算符满足的是左结合律，求值的过程将是怎样的？
 
-
+相当于
+```cpp
+finalgrade = ((grade > 90) ? "high pass" : (grade < 60)) ? "fail" : "pass";
+```
+假如，grade>90则第一个条件表达式会返回high pass，而high pass 非空，则最后会返回fail导致逻辑上的错误。
 ***
 ### **练习4.25**
 
