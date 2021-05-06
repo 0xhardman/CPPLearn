@@ -2760,12 +2760,14 @@ finalgrade = ((grade > 90) ? "high pass" : (grade < 60)) ? "fail" : "pass";
 
 > 如果一台机器上 int 占 32 位、char 占8位，用的是 Latin-1 字符集，其中字符'q' 的二进制形式是 01110001，那么表达式'q' << 6的值是什么？
 
+因为char会提升为00000000 00000000 00000000 01110001，再左移六位后为：00000000 00000000 00011100 01000000
 
 ***
 ### **练习4.26**
 
 > 在本节关于测验成绩的例子中，如果使用unsigned int 作为quiz1 的类型会发生什么情况？
 
+unsigned int 可能只有16位导致出错
 
 ***
 ### **练习4.27**
@@ -2773,41 +2775,88 @@ finalgrade = ((grade > 90) ? "high pass" : (grade < 60)) ? "fail" : "pass";
 > 下列表达式的结果是什么？
 ```cpp
 unsigned long ul1 = 3, ul2 = 7;
-(a) ul1 & ul2 
-(b) ul1 | ul2 
-(c) ul1 && ul2
-(d) ul1 || ul2 
+(a) ul1 & ul2 //4
+(b) ul1 | ul2 //7
+(c) ul1 && ul2 //true
+(d) ul1 || ul2 //true
 ```
 
 ***
 ### **练习4.28**
 
 > 编写一段程序，输出每一种内置类型所占空间的大小。
+
+```cpp
+#include<iostream>
+using std::cout;
+using std::endl;
+int main() {
+	cout << "The size of bool is " << sizeof(bool) << endl;
+	cout << "The size of char is " << sizeof(char) << endl;
+	cout << "The size of short is " << sizeof(short) << endl;
+	cout << "The size of int is " << sizeof(int) << endl;
+	cout << "The size of long is " << sizeof(long) << endl;
+	cout << "The size of long long is " << sizeof(long long) << endl;
+	cout << "The size of float is " << sizeof(float) << endl;
+	cout << "The size of double is " << sizeof(double) << endl;
+	cout << "The size of long double is " << sizeof(long double) << endl;
+	return 0;
+}
+```
+
+Result:  
+![](img/4-28.png)
 ***
 ### **练习4.29**
 
 > 推断下面代码的输出结果并说明理由。实际运行这段程序，结果和你想象的一样吗？如不一样，为什么？
 ```cpp
 int x[10];   int *p = x;
-cout << sizeof(x)/sizeof(*x) << endl;
-cout << sizeof(p)/sizeof(*p) << endl;
+cout << sizeof(x)/sizeof(*x) << endl;//10，即数组大小除以每个元素的大小，即可得元素数量即10
+cout << sizeof(p)/sizeof(*p) << endl;//1，p是int指针，占位4B，*p是int类型，占位4，所以结果是4
 ```
+
+Code:
+```cpp
+#include<iostream>
+using std::cout;
+using std::endl;
+int main() {
+	int x[10];   int* p = x;
+	cout << sizeof(x) / sizeof(*x) << endl;
+	cout << sizeof(p) / sizeof(*p) << endl;
+	return 0;
+}
+```
+ 
+Result:  
+![](img/4-29.png)
+
 ***
 ### **练习4.30**
 
 > 根据4.12节中的表，在下述表达式的适当位置加上括号，使得加上括号之后的表达式的含义与原来的含义相同。
-```cpp
-(a) sizeof x + y      
-(b) sizeof p->mem[i]  
-(c) sizeof a < b     
-(d) sizeof f()  
-```
+>```cpp
+>(a) sizeof x + y      
+>(b) sizeof p->mem[i]  
+>(c) sizeof a < b     
+>(d) sizeof f()  
+>```
+
+(a) sizeof(x)+ y      
+(b) sizeof(p->mem[i])  
+(c) sizeof(a)< b     
+(d) sizeof(f())  
 
 ***
 ### **练习4.31**
 
 > 本节的程序使用了前置版本的递增运算符和递减运算符，解释为什么要用前置版本而不用后置版本。要想使用后置版本的递增递减运算符需要做哪些改动？使用后置版本重写本节的程序。
 
+因为P132中提到若非必须，优先考虑前置的。修改如下，结果不会有改动
+```cpp
+for(vector<int>::size_type ix=0;ix!=ivec.size();ix++,cnt--)
+```
 
 ***
 ### **练习4.32**
@@ -2819,7 +2868,8 @@ int ia[size] = { 1, 2, 3, 4, 5 };
 for (int *ptr = ia, ix = 0;
     ix != size && ptr != ia+size;
     ++ix, ++ptr) { /* ... */ }
-```  
+``` 
+其中ix为索引，ptr为指针，当所以值不等于5，指针未指向end时继续执行，且每次执行后指针和索引都进行递增。 
 ***
 ### **练习4.33**
 
@@ -2828,14 +2878,19 @@ for (int *ptr = ia, ix = 0;
 someValue ? ++x, ++y : --x, --y
 ```
 
+逗号的优先级最低，可以理解为：
+```cpp
+(someValue ? ++x, ++y : --x), --y
+```
 ***
+
 ### **练习4.34**
 
-> 根据本节给出的变量定义，说明在下面的表达式中奖发生什么样的类型转换：
+> 根据本节给出的变量定义，说明在下面的表达式中将发生什么样的类型转换：
 ```cpp
-(a) if (fval)
-(b) dval = fval + ival;
-(c) dval + ival * cval;
+(a) if (fval)//如果fval非0，则转化为true，如果为0则为false
+(b) dval = fval + ival;//int转化为float，相加后再转化为double
+(c) dval + ival * cval;//c提升为int，与ival相乘后还是int，再与dval相加后转化为double
 ```
 
 ***
@@ -2851,29 +2906,35 @@ double dval;
 ```
 请回答在下面的表达式中发生了隐式类型转换吗？如果有，指出来。
 ```cpp
-(a) cval = 'a' + 3;
-(b) fval = ui - ival * 1.0;
-(c) dval = ui * fval;
-(d) cval = ival + fval + dval;
+(a) cval = 'a' + 3;//'a'提升为int，与3相加后转化为char
+(b) fval = ui - ival * 1.0;//ival转double，ui转double，相减后转float
+(c) dval = ui * fval;//ui转float，相乘后转double
+(d) cval = ival + fval + dval;//int转float，与fval相加后转double，再与dval相加后转char
 ```
+
+
 
 ***
 ### **练习4.36**
 
 > 假设 i 是int类型，d 是double类型，书写表达式 i*=d 使其执行整数类型的乘法而非浮点类型的乘法。
 
+```cpp
+i *= static_cast<int>(d);
+```
 
 ***
 ### **练习4.37**
 
 > 用命名的强制类型转换改写下列旧式的转换语句。
-```cpp
-int i; double d; const string *ps; char *pc; void *pv;
-(a) pv = (void*)ps;
-(b) i = int(*pc);
-(c) pv = &d;
-(d) pc = (char*)pv;
-```
+>```cpp
+>int i; double d; const string *ps; char *pc; void *pv;
+>(a) pv = (void*)ps;//pv=static_cast<void*>(d);
+>(b) i = int(*pc);//i=static_cast<int>(*pc);
+>(c) pv = &d;//pv=static_cast<void*>(&d);
+>(d) pc = (char*)pv;//pc=static_cast<char*>(pv);
+>```
+
 
 ***
 ### **练习4.38**
@@ -2882,4 +2943,5 @@ int i; double d; const string *ps; char *pc; void *pv;
 ```cpp
 double slope = static_cast<double>(j/i);
 ```
+将 j/i 的结果值转换为 double，然后赋值给slope。
 ***
