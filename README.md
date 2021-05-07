@@ -165,6 +165,7 @@
 	- [练习5.11](#练习511)
 	- [练习5.12](#练习512)
 	- [练习5.13](#练习513)
+	- [练习5.14](#练习514)
 	- [练习5.15](#练习515)
 	- [练习5.16](#练习516)
 	- [练习5.17](#练习517)
@@ -2977,22 +2978,42 @@ double slope = static_cast<double>(j/i);
 
 > 什么是空语句？什么时候会用到空语句？
 
+空语句就是只含一个单独分号的语句，当语法上需要用到语句，但逻辑上不需要时就可以使用空语句
+
 ### 练习5.2
 
 > 什么是块？什么时候会用到块？
 
+即复合语句，是用花括号括起来的语句和声明序列。当程序在某些地方需要一条语句，但逻辑上需要多条语句时即可使用
 
 ### 练习5.3
 
 > 使用逗号运算符重写1.4.1节的 while 循环，使它不再需要块，观察改写之后的代码可读性提高了还是降低了。
 
+```cpp
+while (val <= 10)
+    sum += val, ++val;
+```
+降低了。
 
 ### 练习5.4
 
 > 说明下列例子的含义，如果存在问题，试着修改它。
 ```cpp
-(a) while (string::iterator iter != s.end()) { /* . . . */ }
+(a) while (string::iterator iter != s.end()) { /* . . . */ }/
 (b) while (bool status = find(word)) { /* . . . */ }
+		if (!status) { /* . . . */ }
+```
+
+(a)执行语句块的内容直到iter指向s的尾后元素，非法，没有初始化，应修改为：
+```cpp
+string::iterator iter=s.begin();
+while (iter != s.end()) { /* . . . */ }/
+```
+(b)此处的if和while里的status不是一个，因为if不在while的语句块里所以没法用，，可修改为：
+```CPP
+bool status;
+(b) while (status = find(word)) { /* . . . */ }
 		if (!status) { /* . . . */ }
 ```
 
@@ -3000,26 +3021,112 @@ double slope = static_cast<double>(j/i);
 
 > 写一段自己的程序，使用if else 语句实现把数字转换为字母成绩的要求。
 
+Code:
+```cpp
+#include<iostream>
+#include<vector>
+#include<string>
+using std::string;
+using std::cin;
+using std::cout;
+using std::vector;
+using std::endl;
+int main() {
+	vector<string> scores = { "F","D","C", "B", "A", "A++" };
+	int grade;
+	string letterGrade;
+	while (cin >> grade) {
+		if (grade < 60) {
+			letterGrade = scores[0];
+		}
+		else {
+			letterGrade = scores[grade / 10-5];
+			if (grade != 100) {
+				if (grade % 10 < 3) {
+					letterGrade += '-';
+				}
+				else if (grade % 10 > 7) {
+					letterGrade += '+';
+				}
+				else
+					;
+			}
+		}
+		cout << letterGrade << endl;
+
+	}
+	return 0;
+}
+```
+
+Result:
+
+![](img/5-5.png)
+
 ### 练习5.6
 
 > 改写上一题的程序，使用条件运算符代替if else语句。
 
+Code:
+```cpp
+#include<iostream>
+#include<vector>
+#include<string>
+using std::string;
+using std::cin;
+using std::cout;
+using std::vector;
+using std::endl;
+int main() {
+	vector<string> scores = { "F","D","C", "B", "A", "A++" };
+	int grade;
+	string letterGrade;
+	while (cin >> grade) {
+		letterGrade = grade < 60 ? scores[0] : scores[grade / 10 - 5];
+		letterGrade += grade % 10 > 7 ? '+' : (grade % 10 < 3 ? '-' : '\000');
+		letterGrade = grade == 100 ? "A++" : letterGrade;
+		cout << letterGrade << endl;
+	}
+	return 0;
+}
+```
+
+Result:
+![](img/5-6.png)
+
 ### 练习5.7
 
 > 改写下列代码段中的错误。
+>```cpp
+>(a) if (ival1 != ival2) 
+>		ival1 = ival2
+>    else 
+>    	ival1 = ival2 = 0;
+>(b) if (ival < minval) 
+>		minval = ival;
+>    	occurs = 1;
+>(c) if (int ival = get_value())
+>    	cout << "ival = " << ival << endl;
+>    if (!ival)
+>    	cout << "ival = 0\n";
+>(d) if (ival = 0)
+>    	ival = get_value();
+>```
+
 ```cpp
 (a) if (ival1 != ival2) 
-		ival1 = ival2
+		ival1 = ival2;
     else 
     	ival1 = ival2 = 0;
-(b) if (ival < minval) 
+(b) if (ival < minval){
 		minval = ival;
-    	occurs = 1;
+    	occurs = 1;//但其实不加也没啥问题，就是看起来恒奇怪
+	}
 (c) if (int ival = get_value())
     	cout << "ival = " << ival << endl;
-    if (!ival)
+    else
     	cout << "ival = 0\n";
-(d) if (ival = 0)
+(d) if (!ival)
     	ival = get_value();
 ```
 
@@ -3028,18 +3135,165 @@ double slope = static_cast<double>(j/i);
 
 > 什么是“悬垂else”？C++语言是如何处理else子句的？
 
+用来描述在嵌套的if else语句中，如果if比else多时如何处理的问题。C++使用的方法是else匹配最近没有配对的if。
 
 ### 练习5.9
 
 > 编写一段程序，使用一系列if语句统计从cin读入的文本中有多少元音字母。
 
+
+Code:
+```cpp
+#include<iostream>
+#include<vector>
+#include<string>
+using std::string;
+using std::cin;
+using std::cout;
+using std::vector;
+using std::endl;
+int main() {
+	string text;
+	int cnt[5] = {0};
+	cin >> text;
+	for (auto ch : text) {
+		if (ch == 'a' || ch == 'A')
+			cnt[0]++;
+		else if (ch == 'e' || ch == 'E')
+			cnt[1]++;
+		else if (ch == 'i' || ch == 'I')
+			cnt[2]++;
+		else if (ch == 'o' || ch == 'O')
+			cnt[3]++;
+		else if (ch == 'u' || ch == 'U')
+			cnt[4]++;
+	}
+
+	cout << "a/A: " << cnt[0] << endl;
+	cout << "e/E: " << cnt[1] << endl;
+	cout << "i/I: " << cnt[2] << endl;
+	cout << "o/O: " << cnt[3] << endl;
+	cout << "u/U: " << cnt[4] << endl;
+
+	return 0;
+}
+```
+
+Result:  
+![](img/5-9.png)
+
 ### 练习5.10
 
 > 我们之前实现的统计元音字母的程序存在一个问题：如果元音字母以大写形式出现，不会被统计在内。编写一段程序，既统计元音字母的小写形式，也统计元音字母的大写形式，也就是说，新程序遇到'a'和'A'都应该递增 aCnt 的值，以此类推。
 
+Code: 
+```cpp
+#include<iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+
+int main()
+{
+	unsigned aCnt = 0, eCnt = 0, iCnt = 0, oCnt = 0, uCnt = 0;
+	char ch;
+	while (cin >> ch)
+		switch (ch)
+		{
+		case 'a':
+		case 'A':
+			++aCnt;
+			break;
+		case 'e':
+		case 'E':
+			++eCnt;
+			break;
+		case 'i':
+		case 'I':
+			++iCnt;
+			break;
+		case 'o':
+		case 'O':
+			++oCnt;
+			break;
+		case 'u':
+		case 'U':
+			++uCnt;
+			break;
+		}
+
+	cout << "Number of vowel a(A): \t" << aCnt << '\n'
+		<< "Number of vowel e(E): \t" << eCnt << '\n'
+		<< "Number of vowel i(I): \t" << iCnt << '\n'
+		<< "Number of vowel o(O): \t" << oCnt << '\n'
+		<< "Number of vowel u(U): \t" << uCnt << endl;
+
+	return 0;
+}
+```
+
+Result:  
+![](img/5-10.png)
 ### 练习5.11
 
 > 修改统计元音字母的程序，使其也能统计空格、制表符、和换行符的数量。
+
+```cpp
+#include<iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+
+int main()
+{
+	unsigned aCnt = 0, eCnt = 0, iCnt = 0, oCnt = 0, uCnt = 0,tCnt=0,sCnt=0,nCnt=0;
+	char ch;
+	while (cin >> std::noskipws >> ch)
+		switch (ch)
+		{
+		case 'a':
+		case 'A':
+			++aCnt;
+			break;
+		case 'e':
+		case 'E':
+			++eCnt;
+			break;
+		case 'i':
+		case 'I':
+			++iCnt;
+			break;
+		case 'o':
+		case 'O':
+			++oCnt;
+			break;
+		case 'u':
+		case 'U':
+			++uCnt;
+			break;
+		case '\t':
+			++tCnt;
+			break;
+		case '\s':
+			++sCnt;
+			break;
+		case '\n':
+			++nCnt;
+			break;
+		}
+
+	cout << "Number of vowel a(A): \t" << aCnt << '\n'
+		<< "Number of vowel e(E): \t" << eCnt << '\n'
+		<< "Number of vowel i(I): \t" << iCnt << '\n'
+		<< "Number of vowel o(O): \t" << oCnt << '\n'
+		<< "Number of vowel u(U): \t" << uCnt << '\n'
+		<< "Number of vowel space: \t" << sCnt << '\n'
+		<< "Number of vowel enter: \t" << nCnt << '\n'
+		<< "Number of vowel tab: \t" << tCnt << endl;
+
+	return 0;
+}
+```
 
 ### 练习5.12
 
@@ -3094,7 +3348,7 @@ double slope = static_cast<double>(j/i);
 
 
 
-# 练习5.14
+### 练习5.14
 
 > 编写一段程序，从标准输入中读取若干string对象并查找连续重复出现的单词，所谓连续重复出现的意思是：一个单词后面紧跟着这个单词本身。要求记录连续重复出现的最大次数以及对应的单词。如果这样的单词存在，输出重复出现的最大次数；如果不存在，输出一条信息说明任何单词都没有连续出现过。例如：如果输入是：
 ```
