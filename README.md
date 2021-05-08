@@ -3274,7 +3274,7 @@ int main()
 		case '\t':
 			++tCnt;
 			break;
-		case '\s':
+		case ' ':
 			++sCnt;
 			break;
 		case '\n':
@@ -3298,6 +3298,89 @@ int main()
 ### 练习5.12
 
 > 修改统计元音字母的程序，使其能统计含以下两个字符的字符序列的数量： ff、fl和fi。
+
+Code:
+```cpp
+#include<iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+
+int main()
+{
+	unsigned aCnt = 0, eCnt = 0, iCnt = 0, oCnt = 0, uCnt = 0, tCnt = 0, sCnt = 0, nCnt = 0,ffCnt=0,flCnt=0,fiCnt=0;
+	char ch,pre='\0';
+	while (cin >> std::noskipws >> ch) {
+		switch (ch)
+		{
+		case 'a':
+		case 'A':
+			++aCnt;
+			break;
+		case 'e':
+		case 'E':
+			++eCnt;
+			break;
+		case 'i':
+		case 'I':
+			++iCnt;
+			if (pre == 'f' || pre == 'F') 
+				++fiCnt;
+			break;
+		case 'o':
+		case 'O':
+			++oCnt;
+			break;
+		case 'u':
+		case 'U':
+			++uCnt;
+			break;
+		case '\t':
+			++tCnt;
+			break;
+		case ' ':
+			++sCnt;
+			break;
+		case '\n':
+			++nCnt;
+			break;
+		case 'F':
+		case 'f':
+			if (pre == 'f' || pre == 'F') {
+				++ffCnt;
+				break;
+			}
+		case 'L':
+		case 'l':
+			if (pre == 'f' || pre == 'F') {
+				++flCnt;
+				break;
+			}
+
+		}
+		pre = ch;
+	}
+		
+
+	cout << "Number of vowel a(A): \t" << aCnt << '\n'
+		<< "Number of vowel e(E): \t" << eCnt << '\n'
+		<< "Number of vowel i(I): \t" << iCnt << '\n'
+		<< "Number of vowel o(O): \t" << oCnt << '\n'
+		<< "Number of vowel u(U): \t" << uCnt << '\n'
+		<< "Number of vowel space: \t" << sCnt << '\n'
+		<< "Number of vowel enter: \t" << nCnt << '\n'
+		<< "Number of vowel tab: \t" << tCnt << '\n'
+		<< "Number of vowel ff: \t" << ffCnt << '\n'
+		<< "Number of vowel fl: \t" << flCnt << '\n'
+		<< "Number of vowel fi: \t" << fiCnt << endl;
+
+	return 0;
+}
+```
+
+Result:
+
+![](img/5-12.png)
 
 ### 练习5.13
 
@@ -3346,6 +3429,57 @@ int main()
     }
 ```
 
+```cpp
+//没有break
+(a) unsigned aCnt = 0, eCnt = 0, iouCnt = 0;
+    char ch = next_text();
+    switch (ch) {
+        case 'a': aCnt++;break;
+        case 'e': eCnt++;break;
+        default: iouCnt++;break;
+    }
+
+//ix的声明应该在switch外
+(b) unsigned index = some_value();
+	int ix;
+    switch (index) {
+        case 1:
+            ix = get_value();
+            ivec[ ix ] = index;
+            break;
+        default:
+            ix = ivec.size()-1;
+            ivec[ ix ] = index;
+    }
+//对10取模不会得到10，只会得到1，同时，case不能打逗号
+(c) unsigned evenCnt = 0, oddCnt = 0;
+    int digit = get_num() % 10;
+    switch (digit) {
+        case 1：case 3: case 5:case 7:case 9:
+            oddcnt++;
+            break;
+        case 0：case 2: case 4:case 6:case 8:
+            evencnt++;
+            break;
+    }
+
+//case里只能放常量
+(d) const unsigned ival=512, jval=1024, kval=4096;
+    unsigned bufsize;
+    unsigned swt = get_bufCnt();
+    switch(swt) {
+        case ival:
+            bufsize = ival * sizeof(int);
+            break;
+        case jval:
+            bufsize = jval * sizeof(int);
+            break;
+        case kval:
+            bufsize = kval * sizeof(int);
+            break;
+    }
+```
+
 
 
 ### 练习5.14
@@ -3355,6 +3489,63 @@ int main()
 how now now now brown cow cow
 ```
 那么输出应该表明单词now连续出现了3次。
+
+```cpp
+#include<iostream>
+#include<vector>
+#include<string>
+using std::string;
+using std::vector;
+using std::cin;
+using std::cout;
+using std::endl;
+int main() {
+	vector<string> word;
+	vector<int> cnt;
+	string pre,curr;
+	int count;
+	if (cin >> pre) {
+		count = 1;
+		while (cin >> curr) {
+			if (curr == pre)
+				count++;
+			else {
+				word.push_back(pre);
+				cnt.push_back(count);
+				pre = curr;
+				count = 1;
+			}
+		}
+		word.push_back(pre);
+		cnt.push_back(count);
+		count = 1;
+	}
+	else {
+		cout << "error" << endl;
+	}
+	
+	int max=1;
+	for (auto num : cnt) {
+		if (num > max)
+			max = num;
+	}
+	if (max == 1)
+		cout << "不存在任何单词重复" << endl;
+	else {
+		int index = 0;
+		for (; index < cnt.size(); ++index) {
+			if (max == cnt[index]) {
+				cout << word[index] << " repeated " << cnt[index] << " times!" << endl;
+				break;
+			}
+		}
+	}
+	return 0;
+}
+```
+
+Result:  
+![](img/5-14-2.png)
 
 ### 练习5.15
 
@@ -3405,12 +3596,37 @@ while (i != size)
     ++i;
 }
 ```
-如果只能用一种循环，我会更倾向使用 while，因为while 显得简洁，代码可读性强。
+如果只能用一种循环，我会更倾向使用 while，因为while 更灵活更美观
 
 ### 练习5.17
 
 > 假设有两个包含整数的vector对象，编写一段程序，检验其中一个vector对象是否是另一个的前缀。为了实现这一目标，对于两个不等长的vector对象，只需挑出长度较短的那个，把它的所有元素和另一个vector对象比较即可。例如，如果两个vector对象的元素分别是0、1、1、2 和 0、1、1、2、3、5、8，则程序的返回结果为真。
 
+Code:
+```cpp
+#include<vector>
+#include<iostream>
+using std::vector;
+using std::cout;
+using std::endl;
+int main() {
+	vector<int> v1 = { 0,1,1,2 }, v2 = {0,1,1,2,3,5,8};
+	for (auto p1 = v1.begin(), p2 = v2.begin(); p1 != v1.end()&&p2 != v2.end(); ++p1, ++p2) {
+		if (*p1 == *p2)
+			continue;
+		else {
+			cout << "false" << endl;
+			return 0;
+		}
+	}
+	cout << "true" << endl;
+	return 0;
+
+}
+```
+
+Result:  
+![](img/5-17.png)
 ### 练习5.18
 
 > 说明下列循环的含义并改正其中的错误。
@@ -3435,27 +3651,185 @@ while (i != size)
 
 > 编写一段程序，使用do while 循环重复地执行下述任务：首先提示用户输入两个string对象，然后挑出较短的那个并输出它。
 
+Code:
+```cpp
+#include<iostream>
+#include<string>
+using std::string;
+using std::cin;
+using std::cout;
+using std::endl;
+int main() {
+	string str1, str2;
+	do {
+		cout << (str1.size() > str2.size() ? str2 : str1)<<endl ;
+		cout << "请输入两个string对象" << endl;
+	} while (cin >> str1 >> str2);
+	return 0;
+}
+
+```
+
+Result:  
+![](img/5-19.png)
 ### 练习5.20
 
 > 编写一段程序，从标准输入中读取string对象的序列直到连续出现两个相同的单词或者所有的单词都读完为止。使用while循环一次读取一个单词，当一个单词连续出现两次时使用break语句终止循环。输出连续重复出现的单词，或者输出一个消息说明没有任何单词是连续重复出现的。
+
+Code:
+```cpp
+#include<iostream>
+#include<string>
+using std::string;
+using std::cin;
+using std::cout;
+using std::endl;
+int main() {
+	string pre, now;
+	while (cin >> now) {
+		if (now == pre) {
+			cout << now << "重复出现了" << endl;
+			return 0;
+		}
+		else {
+			pre = now;
+		}
+	}
+	cout << "没有重复的" << endl;
+	return 0;
+}
+
+```
+
+
+Result:  
+![](img/5-20-1.png)
+![](img/5-20-2.png)
 
 ### 练习5.21
 
 > 修改5.5.1节练习题的程序，使其找到的重复单词必须以大写字母开头。
 
+Code:
+```cpp
+#include<iostream>
+#include<string>
+using std::string;
+using std::cin;
+using std::cout;
+using std::endl;
+int main() {
+	string pre, now;
+	while (cin >> now) {
+		if (now == pre&&isupper(now[0])) {
+			cout << now << "重复出现了" << endl;
+			return 0;
+		}
+		else {
+			pre = now;
+		}
+	}
+	cout << "没有重复的" << endl;
+	return 0;
+}
+```
+
+Result:
+![](img/5-21.png)
+
 ### 练习5.22
 
 > 本节的最后一个例子跳回到 begin，其实使用循环能更好的完成该任务，重写这段代码，注意不再使用goto语句。
+
+```cpp
+int sz;
+do{
+	sz=get_size();
+}while(sz<=0)
+```
 
 ### 练习5.23
 
 > 编写一段程序，从标准输入读取两个整数，输出第一个数除以第二个数的结果。
 
+Code:
+```cpp
+#include <iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+
+int main()
+{
+    int i, j;
+    cin >> i >> j;
+    cout << i / j << endl;
+
+    return 0;
+}
+```
+
 ### 练习5.24
 
 > 修改你的程序，使得当第二个数是0时抛出异常。先不要设定catch子句，运行程序并真的为除数输入0，看看会发生什么？
+
+Code:
+```cpp
+#include <iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+
+int main()
+{
+    int i, j;
+    cin >> i >> j;
+    if (j == 0)
+        throw("除数不能为0");
+    cout << i / j << endl;
+
+    return 0;
+}
+```
+
+Result:  
+![](img/5-24.png)
 
 ### 练习5.25
 
 > 修改上一题的程序，使用try语句块去捕获异常。catch子句应该为用户输出一条提示信息，询问其是否输入新数并重新执行try语句块的内容。
 
+Code:
+```cpp
+#include <iostream>
+#include<stdexcept>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::runtime_error;
+int main()
+{
+    int i, j;
+    while (cin >> i >> j) {
+        try{
+            if (j == 0)
+                throw runtime_error("divided by zero!");
+            cout << i / j << endl;
+        }
+        catch (runtime_error err) {
+            cout << err.what() << endl;
+            cout << "输入错误，是否重新输入？请输入y/n" << endl;
+            char ch;
+            cin >> ch;
+            if (!cin  && ch == 'n')
+                break;
+        }
+    }
+    
+
+    return 0;
+}
+```
+
+Result:  
+![](img/5-25.png)
