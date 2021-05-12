@@ -66,7 +66,7 @@
 	- [**练习 2.40**](#练习-240)
 	- [**练习 2.41**](#练习-241)
 	- [**练习 2.42**](#练习-242)
-- [# 第三章 字符串、向量和数组](#-第三章-字符串向量和数组)
+- [第3章 字符串、向量和数组](#第3章-字符串向量和数组)
 	- [**练习3.1**](#练习31)
 	- [**练习3.2**](#练习32)
 	- [**练习3.3**](#练习33)
@@ -152,31 +152,88 @@
 	- [**练习4.37**](#练习437)
 	- [**练习4.38**](#练习438)
 - [第5章 : 语句](#第5章--语句)
-	- [练习5.1](#练习51)
-	- [练习5.2](#练习52)
-	- [练习5.3](#练习53)
-	- [练习5.4](#练习54)
-	- [练习5.5](#练习55)
-	- [练习5.6](#练习56)
-	- [练习5.7](#练习57)
-	- [练习5.8](#练习58)
-	- [练习5.9](#练习59)
-	- [练习5.10](#练习510)
-	- [练习5.11](#练习511)
-	- [练习5.12](#练习512)
-	- [练习5.13](#练习513)
-	- [练习5.14](#练习514)
+	- [**练习5.1**](#练习51)
+	- [**练习5.2**](#练习52)
+	- [**练习5.3**](#练习53)
+	- [**练习5.4**](#练习54)
+	- [**练习5.5**](#练习55)
+	- [**练习5.6**](#练习56)
+	- [**练习5.7**](#练习57)
+	- [**练习5.8**](#练习58)
+	- [**练习5.9**](#练习59)
+	- [**练习5.10**](#练习510)
+	- [**练习5.11**](#练习511)
+	- [**练习5.12**](#练习512)
+	- [**练习5.13**](#练习513)
+	- [**练习5.14**](#练习514)
 	- [练习5.15](#练习515)
-	- [练习5.16](#练习516)
-	- [练习5.17](#练习517)
-	- [练习5.18](#练习518)
-	- [练习5.19](#练习519)
-	- [练习5.20](#练习520)
-	- [练习5.21](#练习521)
-	- [练习5.22](#练习522)
-	- [练习5.23](#练习523)
-	- [练习5.24](#练习524)
-	- [练习5.25](#练习525)
+	- [**练习5.16**](#练习516)
+	- [**练习5.17**](#练习517)
+	- [**练习5.18**](#练习518)
+	- [**练习5.19**](#练习519)
+	- [**练习5.20**](#练习520)
+	- [**练习5.21**](#练习521)
+	- [**练习5.22**](#练习522)
+	- [**练习5.23**](#练习523)
+	- [**练习5.24**](#练习524)
+	- [**练习5.25**](#练习525)
+- [第6章 函数](#第6章-函数)
+	- [**练习6.1**](#练习61)
+	- [**练习6.2**](#练习62)
+	- [**练习6.3**](#练习63)
+	- [**练习6.4**](#练习64)
+	- [**练习6.5**](#练习65)
+	- [**练习6.6**](#练习66)
+	- [**练习6.7**](#练习67)
+	- [**练习6.8**](#练习68)
+	- [**练习6.9**](#练习69)
+	- [**练习6.10**](#练习610)
+	- [**练习6.11**](#练习611)
+	- [**练习6.12**](#练习612)
+	- [**练习6.13**](#练习613)
+	- [**练习6.14**](#练习614)
+	- [**练习6.15**](#练习615)
+	- [**练习6.16**](#练习616)
+	- [**练习6.17**](#练习617)
+	- [**练习6.18**](#练习618)
+	- [**练习6.19**](#练习619)
+	- [**练习6.20**](#练习620)
+	- [**练习6.21**](#练习621)
+	- [**练习6.22**](#练习622)
+	- [**练习6.23**](#练习623)
+	- [**练习6.24**](#练习624)
+	- [**练习6.25**](#练习625)
+	- [**练习6.26**](#练习626)
+	- [**练习6.27**](#练习627)
+	- [**练习6.28**](#练习628)
+	- [**练习6.29**](#练习629)
+	- [**练习6.30**](#练习630)
+	- [**练习6.31**](#练习631)
+	- [**练习6.32**](#练习632)
+	- [**练习6.33**](#练习633)
+	- [**练习6.34**](#练习634)
+	- [**练习6.35**](#练习635)
+	- [**练习6.36**](#练习636)
+	- [**练习6.37**](#练习637)
+	- [**练习6.38**](#练习638)
+	- [**练习6.39**](#练习639)
+	- [**练习6.40**](#练习640)
+	- [**练习6.41**](#练习641)
+	- [**练习6.42**](#练习642)
+	- [**练习6.43**](#练习643)
+	- [**练习6.44**](#练习644)
+	- [**练习6.45**](#练习645)
+	- [**练习6.46**](#练习646)
+	- [**练习6.47**](#练习647)
+	- [**练习6.48**](#练习648)
+	- [**练习6.49**](#练习649)
+	- [**练习6.50**](#练习650)
+	- [**练习6.51**](#练习651)
+	- [**练习6.52**](#练习652)
+	- [**练习6.53**](#练习653)
+	- [**练习6.54**](#练习654)
+	- [**练习6.55**](#练习655)
+	- [**练习6.56**](#练习656)
 
 ## 第1章 开始
 ### **练习 1.1**
@@ -1307,7 +1364,7 @@ int main() {
 
 ***
 
-## # 第三章 字符串、向量和数组
+## 第3章 字符串、向量和数组
 
 ### **练习3.1**
 
@@ -2973,20 +3030,20 @@ double slope = static_cast<double>(j/i);
 ***
 
 ## 第5章 : 语句
-
-### 练习5.1
+***
+### **练习5.1**
 
 > 什么是空语句？什么时候会用到空语句？
 
 空语句就是只含一个单独分号的语句，当语法上需要用到语句，但逻辑上不需要时就可以使用空语句
-
-### 练习5.2
+***
+### **练习5.2**
 
 > 什么是块？什么时候会用到块？
 
 即复合语句，是用花括号括起来的语句和声明序列。当程序在某些地方需要一条语句，但逻辑上需要多条语句时即可使用
-
-### 练习5.3
+***
+### **练习5.3**
 
 > 使用逗号运算符重写1.4.1节的 while 循环，使它不再需要块，观察改写之后的代码可读性提高了还是降低了。
 
@@ -2995,8 +3052,8 @@ while (val <= 10)
     sum += val, ++val;
 ```
 降低了。
-
-### 练习5.4
+***
+### **练习5.4**
 
 > 说明下列例子的含义，如果存在问题，试着修改它。
 ```cpp
@@ -3016,8 +3073,8 @@ bool status;
 (b) while (status = find(word)) { /* . . . */ }
 		if (!status) { /* . . . */ }
 ```
-
-### 练习5.5
+***
+### **练习5.5**
 
 > 写一段自己的程序，使用if else 语句实现把数字转换为字母成绩的要求。
 
@@ -3062,8 +3119,8 @@ int main() {
 Result:
 
 ![](img/5-5.png)
-
-### 练习5.6
+***
+### **练习5.6**
 
 > 改写上一题的程序，使用条件运算符代替if else语句。
 
@@ -3093,8 +3150,8 @@ int main() {
 
 Result:
 ![](img/5-6.png)
-
-### 练习5.7
+***
+### **练习5.7**
 
 > 改写下列代码段中的错误。
 >```cpp
@@ -3130,14 +3187,14 @@ Result:
     	ival = get_value();
 ```
 
-
-### 练习5.8
+***
+### **练习5.8**
 
 > 什么是“悬垂else”？C++语言是如何处理else子句的？
 
 用来描述在嵌套的if else语句中，如果if比else多时如何处理的问题。C++使用的方法是else匹配最近没有配对的if。
-
-### 练习5.9
+***
+### **练习5.9**
 
 > 编写一段程序，使用一系列if语句统计从cin读入的文本中有多少元音字母。
 
@@ -3181,8 +3238,8 @@ int main() {
 
 Result:  
 ![](img/5-9.png)
-
-### 练习5.10
+***
+### **练习5.10**
 
 > 我们之前实现的统计元音字母的程序存在一个问题：如果元音字母以大写形式出现，不会被统计在内。编写一段程序，既统计元音字母的小写形式，也统计元音字母的大写形式，也就是说，新程序遇到'a'和'A'都应该递增 aCnt 的值，以此类推。
 
@@ -3234,7 +3291,9 @@ int main()
 
 Result:  
 ![](img/5-10.png)
-### 练习5.11
+
+***
+### **练习5.11**
 
 > 修改统计元音字母的程序，使其也能统计空格、制表符、和换行符的数量。
 
@@ -3294,8 +3353,8 @@ int main()
 	return 0;
 }
 ```
-
-### 练习5.12
+***
+### **练习5.12**
 
 > 修改统计元音字母的程序，使其能统计含以下两个字符的字符序列的数量： ff、fl和fi。
 
@@ -3381,8 +3440,8 @@ int main()
 Result:
 
 ![](img/5-12.png)
-
-### 练习5.13
+***
+### **练习5.13**
 
 > 下面显示的每个程序都含有一个常见的编码错误，指出错误在哪里，然后修改它们。
 ```cpp
@@ -3481,8 +3540,8 @@ Result:
 ```
 
 
-
-### 练习5.14
+***
+### **练习5.14**
 
 > 编写一段程序，从标准输入中读取若干string对象并查找连续重复出现的单词，所谓连续重复出现的意思是：一个单词后面紧跟着这个单词本身。要求记录连续重复出现的最大次数以及对应的单词。如果这样的单词存在，输出重复出现的最大次数；如果不存在，输出一条信息说明任何单词都没有连续出现过。例如：如果输入是：
 ```
@@ -3546,7 +3605,7 @@ int main() {
 
 Result:  
 ![](img/5-14-2.png)
-
+***
 ### 练习5.15
 
 > 说明下列循环的含义并改正其中的错误。
@@ -3569,8 +3628,8 @@ Result:
     for (; ix != sz; ++ix) { /* ... */ }
 (c) for (int ix = 0; ix != sz; ++ix) { /*...*/ }
 ```
-
-### 练习5.16
+***
+### **练习5.16**
 
 > while 循环特别适用于那种条件不变、反复执行操作的情况，例如，当未达到文件末尾时不断读取下一个值。for 循环更像是在按步骤迭代，它的索引值在某个范围内一次变化。根据每种循环的习惯各自编写一段程序，然后分别用另一种循环改写。如果只能使用一种循环，你倾向于哪种？为什么？
 
@@ -3597,8 +3656,8 @@ while (i != size)
 }
 ```
 如果只能用一种循环，我会更倾向使用 while，因为while 更灵活更美观
-
-### 练习5.17
+***
+### **练习5.17**
 
 > 假设有两个包含整数的vector对象，编写一段程序，检验其中一个vector对象是否是另一个的前缀。为了实现这一目标，对于两个不等长的vector对象，只需挑出长度较短的那个，把它的所有元素和另一个vector对象比较即可。例如，如果两个vector对象的元素分别是0、1、1、2 和 0、1、1、2、3、5、8，则程序的返回结果为真。
 
@@ -3627,7 +3686,9 @@ int main() {
 
 Result:  
 ![](img/5-17.png)
-### 练习5.18
+
+***
+### **练习5.18**
 
 > 说明下列循环的含义并改正其中的错误。
 ```cpp
@@ -3646,8 +3707,8 @@ Result:
         ival = get_response();
     } while (ival); // 应该将ival 定义在循环外
 ```
-
-### 练习5.19
+***
+### **练习5.19**
 
 > 编写一段程序，使用do while 循环重复地执行下述任务：首先提示用户输入两个string对象，然后挑出较短的那个并输出它。
 
@@ -3672,7 +3733,7 @@ int main() {
 
 Result:  
 ![](img/5-19.png)
-### 练习5.20
+### **练习5.20**
 
 > 编写一段程序，从标准输入中读取string对象的序列直到连续出现两个相同的单词或者所有的单词都读完为止。使用while循环一次读取一个单词，当一个单词连续出现两次时使用break语句终止循环。输出连续重复出现的单词，或者输出一个消息说明没有任何单词是连续重复出现的。
 
@@ -3705,8 +3766,8 @@ int main() {
 Result:  
 ![](img/5-20-1.png)
 ![](img/5-20-2.png)
-
-### 练习5.21
+***
+### **练习5.21**
 
 > 修改5.5.1节练习题的程序，使其找到的重复单词必须以大写字母开头。
 
@@ -3736,8 +3797,8 @@ int main() {
 
 Result:
 ![](img/5-21.png)
-
-### 练习5.22
+***
+### **练习5.22**
 
 > 本节的最后一个例子跳回到 begin，其实使用循环能更好的完成该任务，重写这段代码，注意不再使用goto语句。
 
@@ -3747,8 +3808,8 @@ do{
 	sz=get_size();
 }while(sz<=0)
 ```
-
-### 练习5.23
+***
+### **练习5.23**
 
 > 编写一段程序，从标准输入读取两个整数，输出第一个数除以第二个数的结果。
 
@@ -3768,8 +3829,8 @@ int main()
     return 0;
 }
 ```
-
-### 练习5.24
+***
+### **练习5.24**
 
 > 修改你的程序，使得当第二个数是0时抛出异常。先不要设定catch子句，运行程序并真的为除数输入0，看看会发生什么？
 
@@ -3794,8 +3855,8 @@ int main()
 
 Result:  
 ![](img/5-24.png)
-
-### 练习5.25
+***
+### **练习5.25**
 
 > 修改上一题的程序，使用try语句块去捕获异常。catch子句应该为用户输出一条提示信息，询问其是否输入新数并重新执行try语句块的内容。
 
@@ -3833,3 +3894,962 @@ int main()
 
 Result:  
 ![](img/5-25.png)
+***
+
+## 第6章 函数
+
+***
+### **练习6.1**
+
+> 实参和形参的区别的什么？
+
+实参是函数的初始值，实参在调用函数时给出，形参在定义函数时给出
+
+***
+### **练习6.2**
+
+> 请指出下列函数哪个有错误，为什么？应该如何修改这些错误呢？
+>```cpp
+>(a) int f() {
+>          string s;
+>          // ...
+>          return s;
+>    }
+>(b) f2(int i) { /* ... */ }
+>(c) int calc(int v1, int v1) { /* ... */ }
+>(d) double square (double x)  return x * x; 
+>```
+
+```cpp
+(a) string f() {
+          string s;
+          // ...
+          return s;
+    }//s为字符串类型，返回类型应与return语句中的值的类型一致
+(b) void f2(int i) { /* ... */ }//未定义返回类型
+(c) int calc(int v1, int v2) { /* ... */ }//任意两个形参都不能同名
+(d) double square (double x)  {return x * x}; //没有将语句卸载语句块中
+```
+
+***
+### **练习6.3**
+
+> 编写你自己的fact函数，上机检查是否正确。
+
+Code:
+```cpp
+#include<iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+int fact(int n) {
+	int res=1;
+	for (int i = 1; i <= n;++i) {
+		res *= i;
+	}
+	return res;
+}
+int main() {
+	int n;
+	cin >> n;
+	cout << n<<"!="<<fact(n) << endl;
+	return 0;
+}
+```
+
+Result:
+![](img/6-3.png)
+***
+### **练习6.4**
+
+> 编写一个与用户交互的函数，要求用户输入一个数字，计算生成该数字的阶乘。在main函数中调用该函数。
+
+诶，巧了，上题就是这么写的。
+***
+### **练习6.5**
+
+> 编写一个函数输出其实参的绝对值。
+
+```cpp
+int abs(int n){
+	return n<0?-n:n;
+}
+```
+
+***
+### **练习6.6**
+
+> 说明形参、局部变量以及局部静态变量的区别。编写一个函数，同时达到这三种形式。
+
+形参定义在函数名后的形参列表里，需要被初始化，函数结束就会被销毁
+局部变量即形参或者是在函数体内部定义的变量，只有在作用域内可见
+局部静态变量是被定义为static类型的局部变量，在执行路径第一次经过对象定义语句时初始化，
+
+Code:
+```cpp
+#include<iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+int sum(int n) {//形参n，局部变量n
+	static int sum = 0;//局部静态变量sum，也是局部变量
+
+	sum += n;
+	return sum;
+}
+int main() {
+	int n;
+	while (cin >> n) {
+		cout << sum(n) << endl;//实参n
+	}
+	return 0;
+}
+```
+***
+### **练习6.7**
+
+> 编写一个函数，当它第一次被调用时返回0，以后每次被调用返回值加1。
+
+Code:
+```cpp
+int cnt() {
+	static int cnt = 0;
+	return cnt++;
+}
+```
+
+
+***
+### **练习6.8**
+
+> 编写一个名为Chapter6.h 的头文件，令其包含6.1节练习中的函数声明。
+
+```cpp
+#pragma once
+int fact(int);
+int func();
+```
+
+***
+### **练习6.9**
+
+> 编写你自己的fact.cc 和factMain.cc ，这两个文件都应该包含上一小节的练习中编写的 Chapter6.h 头文件。通过这些文件，理解你的编译器是如何支持分离式编译的。
+
+详见[代码](Code\6-9)
+***
+### **练习6.10**
+
+> 编写一个函数，使用指针形参交换两个整数的值。在代码中调用该函数并输出交换后的结果，以此验证函数的正确性。
+
+Code:
+```cpp
+#include<iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+void swap(int* a, int* b) {
+	int t;
+	t = *a;
+	*a = *b;
+	*b = t;
+}
+int main() {
+	int a=0, b=1;
+	cout << a << " " << b << endl;
+	swap(&a, &b);
+	cout << a << " " << b << endl;
+	return 0;
+}
+```
+
+Result:  
+![](img/6-10.png)
+***
+### **练习6.11**
+
+> 编写并验证你自己的reset函数，使其作用于引用类型的参数。
+
+```cpp
+#include<iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+void reset(int& n) {
+	n = 0;
+}
+int main() {
+	int a = 1;
+	cout << a << endl;
+	reset(a);
+	cout << a << endl;
+}
+```
+
+***
+### **练习6.12**
+
+> 改写6.2.1节练习中的程序，使其引用而非指针交换两个整数的值。你觉得哪种方法更易于使用呢？为什么？
+
+后一种好用，不用复杂的调用取地址符，解引用符
+Code:
+```cpp
+#include<iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+void swap(int& a, int& b) {
+	int t;
+	t = a;
+	a = b;
+	b = t;
+}
+int main() {
+	int a = 0, b = 1;
+	cout << a << " " << b << endl;
+	swap(a, b);
+	cout << a << " " << b << endl;
+	return 0;
+}
+```
+
+***
+### **练习6.13**
+
+> 假设 T 是某种类型的名字，说明以下两个函数声明的区别：一个是void f(T), 另一个是 void f(&T)。
+
+声明了一个无返回值的函数f,函数形参的类型是T
+声明了一个无返回值的函数f,函数形参的类型是T的引用
+
+***
+### **练习6.14**
+
+> 举一个形参应该是引用类型的例子，再举一个形参不能是引用类型的例子。
+
+```cpp
+void swap(int& a, int& b) {
+	int t;
+	t = a;
+	a = b;
+	b = t;
+}//形参应该是引用的例子，只有形参是引用才能实现，原值的交换
+int fact(int n){
+	int res=1;
+	for(;n>1;n--)
+		res*=n;
+	return res;
+}//这便是一个形参不能是引用的例子，函数体中涉及了对参数修改
+```
+
+***
+### **练习6.15**
+
+> 说明find_char 函数中的三个形参为什么是现在的类型，特别说明为什么s是常量引用而occurs是普通引用？为什么s和occurs是引用类型而c不是？如果令s是普通引用会发生什么情况？如果令occurs是常量引用会发生什么情况？
+
+s是常量引用是因为s不需要修改，所以定义为常量引用，occurs要修改所以是普通引用
+s是引用是因为s为字符串，内容可能非常长应当避免去直接拷贝他们，occurs是引用是因为要同时让主函数接收到两个结果，c不需要修改，就是普通的形参，所以不是引用
+s是普通应用的话可能比较浪费空间
+如果令occurs是常量应用会导致ocuurs无法修改，导致无法更新（获取）出现的位置
+
+***
+### **练习6.16**
+
+> 下面的这个函数虽然合法，但是不算特别有用。指出它的局限性并设法改善。
+>```cpp
+>bool is_empty(string& s) { return s.empty(); }
+>```
+
+因为没有对s进行修改操作，所以应将string& s修改为const string& s，其次会误导使用者即函数可以修改其实参的值。
+
+***
+### **练习6.17**
+
+> 编写一个函数，判断string对象中是否含有大写字母。编写另一个函数，把string对象全部改写成小写形式。在这两个函数中你使用的形参类型相同吗？为什么？
+
+```cpp
+#include<iostream>
+using std::string;
+using std::cout;
+using std::cin;
+using std::endl;
+bool is_contain_upper(const string &s) {
+	for (auto ch : s) {
+		if (isupper(ch))
+			return true;
+	}
+	return false;
+}
+void string_to_lower(string &s) {
+	for (auto &ch : s) {
+		if (isupper(ch)){
+			ch = tolower(ch);
+		}
+	}
+}
+int main() {
+	string s = "AbcdEFG";
+	cout << is_contain_upper(s) << endl;
+	string_to_lower(s);
+	cout << s << endl;
+	cout << is_contain_upper(s) << endl;
+}
+```
+
+Result:  
+
+不一样，因为第二个函数需要修改string对象所以不能加const
+
+***
+### **练习6.18**
+
+> 为下面的函数编写函数声明，从给定的名字中推测函数具备的功能。
+* (a) 名为 compare 的函数，返回布尔值，两个参数都是 matrix 类的引用。 
+* (b) 名为 change_val 的函数，返回vector<int>的迭代器，有两个参数：一个是int，另一个是vector<int>的迭代器。
+
+```cpp
+bool compare(matrix&,matrix&);//比较两个矩阵是否相等
+vector<int>::iterator change_val(int,vector<int>::iterator);//修改vector<int>的值
+```
+***
+### **练习6.19**
+
+> 假定有如下声明，判断哪个调用合法、哪个调用不合法。对于不合法的函数调用，说明原因。
+```cpp
+double calc(double);
+int count(const string &, char);
+int sum(vector<int>::iterator, vector<int>::iterator, int);
+vector<int> vec(10);
+(a) calc(23.4, 55.1);//不合法，参数数量过多
+(b) count("abcda",'a');//合法
+(c) calc(66);//合法
+(d) sum(vec.begin(), vec.end(), 3.8);//合法
+```
+
+***
+### **练习6.20**
+
+> 引用形参什么时候应该是常量引用？如果形参应该是常量引用，而我们将其设为了普通引用，会发生什么情况？
+
+不对引用形参进行修改时应该是常量引用，
+容易让人误解认为函数会改变引用的变量，且常量实参将无法作用于普通引用的形参
+
+***
+### **练习6.21**
+
+> 编写一个函数，令其接受两个参数：一个是int型的数，另一个是int指针。函数比较int的值和指针所指的值，返回较大的那个。在该函数中指针的类型应该是什么？
+
+Code:
+```cpp
+#include<iostream>
+using std::cout;
+using std::endl;
+int put_out_bigger(int a, const int* p) {
+	return a > *p ? a : *p;
+}
+int main() {
+	int i = 9;
+	cout << put_out_bigger(10, &i) << endl;
+	return 0;
+}
+```
+
+Result:  
+![](img/6-21.png)
+
+const int * / int *都可以，因为实参初始化形参是会忽略掉顶层const
+***
+### **练习6.22**
+
+> 编写一个函数，令其交换两个int指针。
+
+Code:
+```cpp
+#include<iostream>
+using std::cout;
+using std::endl;
+void swap(int** a, int** b) {
+	int* t;
+	t = *a;
+	*a = *b;
+	*b = t;
+}
+int main() {
+	int a = 1, b = 2;
+	int* p1 = &a, *p2 = &b;
+	cout << *p1 << " " << *p2 << endl;
+	swap(&p1,&p2);
+	cout << *p1 << " " << *p2 << endl;
+}
+```
+通过int**去交换int\*
+Result:  
+![](img/6-22.png)
+***
+### **练习6.23**
+
+> 参考本节介绍的几个print函数，根据理解编写你自己的版本。依次调用每个函数使其输入下面定义的i和j:
+>```cpp
+>int i=0,j[0]={0,1};
+>```
+
+Code:
+```cpp
+#include<iostream>
+using std::cout;
+using std::endl;
+using std::begin;
+using std::end;
+void print(int n) {
+	cout << n << endl;
+}
+void print(int* arr,int size) {
+	for (auto i = 0; i != size; ++i)
+		cout << arr[i] << " ";
+	cout << endl;
+}
+void print(int* begin, int* end) {
+	for (; begin != end; ++begin)
+		cout << *begin << " ";
+	cout << endl;
+}
+void print(int(&arr)[2]) {
+	for (auto i = 0; i != 2; ++i)
+		cout << arr[i] << " ";
+	cout << endl;
+}
+int main() {
+	int i = 0, j[2] = { 0,1 };
+	print(i);
+	print(j, 2);
+	print(begin(j),end(j));
+	print(j);
+	return 0;
+}
+```
+
+Result:  
+![](img/6-23.png)
+
+***
+### **练习6.24**
+
+> 描述下面这个函数的行为。如果代码中存在问题，请指出并改正。
+```cpp
+void print(const int ia[10])
+{
+	for (size_t i = 0; i != 10; ++i)
+		cout << ia[i] << endl;
+}
+```
+
+实际上等价于 const int *，即接受一个数组的指针初始化出一个叫ia的const int *的形参，可以输出ia所指对象后的10个int对象，要是实参中不足10个则可能会报错，超过的话可能则不能全部输出。可以修改为如下形式，这样就只能接受含有10个int对象的数组的指针。
+```cpp
+void print(const int (&ia)[10])
+{
+	for (size_t i = 0; i != 10; ++i)
+		cout << ia[i] << endl;
+}
+```
+***
+### **练习6.25**
+
+> 编写一个main函数，令其接受两个实参。把实参的内容连接成一个string对象并输出出来。
+
+Code:
+```cpp
+#include<iostream>
+#include<string>
+using std::string;
+using std::cout;
+using std::endl;
+int main(int argc,char** argv) {
+	string res;
+	for (auto i = 1; i != argc; ++i) {
+		res += string(argv[i]) +" ";
+	}
+	cout << res << endl;
+	return 0;
+}
+```
+
+Result:  
+![](img/6-25.png)
+***
+### **练习6.26**
+
+> 编写一个程序，使其接受本节所示的选项；输出传递给main函数的实参内容。
+
+见上题
+***
+### **练习6.27**
+
+> 编写一个函数，它的参数是initializer_list<int>类型的对象，函数的功能是计算列表中所有元素的和。
+
+Code: 
+```cpp
+#include<iostream>
+#include<initializer_list>
+using std::cout;
+using std::endl;
+using std::initializer_list;
+int sum(initializer_list<int> lst) {
+	int sum = 0;
+	for (auto n : lst) 
+		sum += n;
+	return sum;
+}
+int main() {
+	cout << sum({1,23,4,5}) << endl;
+	return 0;
+}
+```
+
+Result:  
+![](img/6-26.png)
+***
+### **练习6.28**
+
+> 在error_msg函数的第二个版本中包含ErrCode类型的参数，其中循环内的elem是什么类型？
+
+const string &常量字符串的引用
+***
+### **练习6.29**
+
+> 在范围for循环中使用initializer_list对象时，应该将循环控制变量声明成引用类型吗？为什么？
+
+没必要，最好声明为常量引用，因为initializer_list对象中的元素都是常量，无法修改initializer_list对象中的元素值。
+
+***
+### **练习6.30**
+
+> 编译第200页的str_subrange函数，看看你的编译器是如何处理函数中的错误的。
+
+Code:
+```cpp
+#include<iostream>
+#include<string>
+using std::string;
+using std::cout;
+using std::endl;
+bool str_subrange(const string& str1, const string& str2) {
+	if (str1.size() == str2.size())
+		return str1 == str2;
+	auto size = (str1.size() < str2.size()) ? str1.size() : str2.size();
+	for (decltype(size) i = 0; i != size; ++i) {
+		if (str1[i] != str2[i])
+			return;
+	}
+}
+int main() {
+	cout << ("abc", "abcd") << endl;
+}
+```
+
+
+Result:  
+![](img/6-30.png)
+
+***
+### **练习6.31**
+
+> 什么情况下返回的引用无效？什么情况下返回常量的引用无效？
+
+如果返回的是局部对象的引用则是无效的
+当我们试图给返回的常量引用进行赋值时是无效的
+
+***
+### **练习6.32**
+
+> 下面的函数合法吗？如果合法，说明其功能；如果不合法，修改其中的错误并解释原因。
+>
+```cpp
+int &get(int *array, int index) { return array[index]; }
+int main()
+{
+    int ia[10];
+    for (int i = 0; i != 10; ++i)
+        get(ia, i) = i;
+}
+```
+
+合法，get函数通过索引取得数组元素的引用
+
+***
+### **练习6.33**
+
+> 编写一个递归函数，输出vector对象的内容。
+
+Code:  
+```cpp
+#include<iostream>
+#include<vector>
+using std::cout;
+using std::endl;
+using std::vector;
+void print(vector<int>::iterator begin, vector<int>::iterator end) {
+	if (begin == end)
+		cout << endl;
+	else {
+		cout << *begin << " ";
+		print(begin + 1, end);
+	}
+}
+int main() {
+	vector<int> v{1, 23, 45, 6, 7, 89, 0};
+	print(v.begin(),v.end());
+}
+```
+
+Result:  
+![](img/6-33.png)
+
+***
+### **练习6.34**
+
+> 如果factorial 函数的停止条件如下所示，将发生什么？
+```cpp
+if (val != 0)
+```
+
+当val为负数时程序不会停止，为0或正值是会按原来的正确结果输出
+
+***
+### **练习6.35**
+
+> 在调用factorial 函数时，为什么我们传入的值是 val-1 而非 val--？
+
+可以是--val，val--的话实际传入factorial的还是val，递归永远不会结束
+***
+### **练习6.36**
+
+> 编写一个函数声明，使其返回数组的引用并且该数组包含10个string对象。不用使用尾置返回类型、decltype或者类型别名。
+```cpp
+using std::string;
+string (&func())[10];
+```
+***
+### **练习6.37**
+
+> 为上一题的函数再写三个声明，一个使用类型别名，另一个使用尾置返回类型，最后一个使用decltype关键字。你觉得哪种形式最好？为什么？
+
+```cpp
+using std::string;
+using arr10=string[10];
+string a[10];
+arr10 *func();
+auto func()->string(*)[10];
+decltype(a) *func();
+```
+别名形式好，最直接清晰
+
+***
+### **练习6.38**
+> 修改arrPtr函数，使其返回数组的引用。
+
+```cpp
+decltype(odd) &arrPtr(int i);
+```
+
+把*改成&即可
+
+***
+### **练习6.39**
+
+> 说明在下面的每组声明中第二条语句是何含义。如果有非法的声明，请指出来。
+>```cpp
+>(a) int calc(int, int);
+>	int calc(const int, const int);
+>(b) int get();
+>	double get();
+>(c) int *reset(int *);
+>	double *reset(double *);
+>```
+(a) 非法，顶层const不影响传入函数的对象，上下两条声明等价无法区分
+(b) 非法，重载时只能是参数列表有区别，返回值与重载无关
+(c) 合法，可以通过参数区分，返回不同的参数，但这不是重载
+***
+### **练习6.40**
+
+> 下面的哪个声明是错误的？为什么？
+```cpp
+(a) int ff(int a, int b = 0, int c = 0);
+(b) char *init(int ht = 24, int wd, char bckgrnd);		
+```
+(a) 正确
+(b) 错误，一旦一个形参被赋予默认值则其后的形参也得赋予默认值
+***
+### **练习6.41**
+
+> 下面的哪个调用是非法的？为什么？哪个调用虽然合法但显然与程序员的初衷不符？为什么？
+>```cpp
+>char *init(int ht, int wd = 80, char bckgrnd = ' ');
+>(a) init();
+>(b) init(24,10);
+>(c) init(14,'*');
+>```
+
+(a)非法，参数不足，无法完成第一个形参的初始化
+(b)合法
+(c)合法，但'*'实际上会初始化第二个参数，而非第三个
+***
+### **练习6.42**
+
+> 给make_plural函数的第二个形参赋予默认实参's', 利用新版本的函数输出单词success和failure的单数和复数形式。
+
+Code:
+```cpp
+#include <cstddef>
+using std::size_t;
+
+#include <string>
+using std::string;
+
+#include <iostream>
+using std::cout; using std::endl;
+
+string make_plural(size_t ctr, const string& word,const string& ending = "s")
+{
+	return (ctr > 1) ? word + ending : word;
+}
+int main() {
+	cout << make_plural(1, "success","es") << endl;
+	cout << make_plural(2, "success", "es") << endl;
+	cout << make_plural(1, "failure", "s") << endl;
+	cout << make_plural(2, "failure", "s") << endl;
+}
+```
+
+Result:  
+![](img/6-42.png)
+
+***
+### **练习6.43**
+
+> 你会把下面的哪个声明和定义放在头文件中？哪个放在源文件中？为什么？
+>```cpp
+>(a) inline bool eq(const BigInt&, const BigInt&) {...}
+>(b) void putValues(int *arr, int size);
+>```
+
+全放，二者都不具有特殊性，a是内联函数，b是声明
+***
+### **练习6.44**
+
+> 将6.2.2节的isShorter函数改写成内联函数。
+
+```cpp
+inline bool isShorter(const string &s1,const string &s2){
+	return s1.size()<s2.size();
+}
+```
+***
+### **练习6.45**
+
+> 回顾在前面的练习中你编写的那些函数，它们应该是内联函数吗？如果是，将它们改写成内联函数；如果不是，说明原因。
+
+一个return就能完成的函数，流程直接，调度频繁的适合做内联函数比如make_plural，而递归print则比较复杂不适合
+***
+### **练习6.46**
+
+> 能把isShorter函数定义成constexpr函数吗？如果能，将它改写成constxpre函数；如果不能，说明原因。
+
+不能。constexpr函数的返回值类型及所有形参都得是字面值类型
+
+***
+### **练习6.47**
+
+> 改写6.3.2节练习中使用递归输出vector内容的程序，使其有条件地输出与执行过程有关的信息。例如，每次调用时输出vector对象的大小。分别在打开和关闭调试器的情况下编译并执行这个程序。
+
+Code:
+```cpp
+#include<iostream>
+#include<vector>
+//#define NDEDUG
+using std::cout;
+using std::endl;
+using std::vector;
+void print(vector<int>::iterator begin, vector<int>::iterator end) {
+#ifndef NDEDUG
+	cout << "vector size=" << end - begin << endl;
+#endif // !
+
+
+	if (begin == end)
+		cout << endl;
+	else {
+		cout << *begin << " ";
+		print(begin + 1, end);
+	}
+}
+int main() {
+	vector<int> v{ 1, 23, 45, 6, 7, 89, 0 };
+	print(v.begin(), v.end());
+}
+```
+
+Result:  
+![](img/6-47-1.png)  
+![](img/6-47-2.png)
+***
+### **练习6.48**
+
+> 说明下面这个循环的含义，它对assert的使用合理吗？
+
+
+```cpp
+string s;
+while (cin >> s && s != sought) { } //空函数体
+assert(cin);
+```
+读取字符串到s直到读取到的字符串等于sought中的值  
+不合理，应该是
+```cpp
+assert(s == sought);
+```
+***
+### **练习6.49**
+
+> 什么是候选函数？什么是可行函数？
+1. 候选函数：与被调用函数同名，并且其声明在调用点可见。
+2. 可行函数：形参与实参的数量相等，并且每个实参类型与对应的形参类型相同或者能转换成形参的类型。
+***
+### **练习6.50**
+
+> 已知有第217页对函数 f 的声明，对于下面的每一个调用列出可行函数。其中哪个函数是最佳匹配？如果调用不合法，是因为没有可匹配的函数还是因为调用具有二义性？
+```cpp
+(a) f(2.56, 42)//非法，二义性
+(b) f(42)//合法void f(int)
+(c) f(42, 0)//合法，void f(int ,int )
+(d) f(2.56, 3.14)//合法，void f(double,double)
+```
+
+***
+### **练习6.51**
+
+> 编写函数f的4版本，令其各输出一条可以区分的消息。验证上一个练习的答案，如果你的回答错了，反复研究本节内容直到你弄清自己错在何处。
+
+Code:
+```cpp
+#include<iostream>
+using std::cout;
+using std::endl;
+void f(){
+	cout << "nothing" << endl;
+}
+
+void f(int a) {
+	cout << a << endl;
+}
+
+void f(int a, int b) {
+	cout << a + b << endl;
+}
+
+void f(double a, double b) {
+	cout << a + b << endl;
+}
+int main() {
+	f();
+	//f(2.56, 42);
+	f(42);
+	f(42, 0);
+	f(2.56,3.14);
+	return 0;
+
+}
+```
+
+Result:  
+![](img/6-51.png)
+***
+### **练习6.52**
+
+> 已知有如下声明：
+```cpp
+void manip(int ,int);
+double dobj;
+```
+请指出下列调用中每个类型转换的等级。
+```cpp
+(a) manip('a', 'z');
+(b) manip(55.4, dobj);
+```
+a第3级，b第4级
+***
+### **练习6.53**
+
+> 说明下列每组声明中的第二条语句会产生什么影响，并指出哪些不合法（如果有的话）。
+```cpp
+(a) int calc(int&, int&); 
+	int calc(const int&, const int&); 
+(b) int calc(char*, char*);
+	int calc(const char*, const char*);
+(c) int calc(char*, char*);
+	int calc(char* const, char* const);
+```
+
+(c) 不合法。顶层const不影响传入函数的对象，会导致二义性
+***
+### **练习6.54**
+
+> 编写函数的声明，令其接受两个int形参并返回类型也是int；然后声明一个vector对象，令其元素是指向该函数的指针。
+```cpp
+int func(int,int);
+vector(int (*)(int,int))
+//vector<decltype(func)*> v;
+```
+***
+### **练习6.55**
+
+> 编写4个函数，分别对两个int值执行加、减、乘、除运算；在上一题创建的vector对象中保存指向这些函数的指针。
+```cpp
+int add(int a,int b){
+	return a+b; 
+}
+int subtract(int a,int b){
+	return a-b; 
+}
+int multiply(int a,int b){
+	return a*b; 
+}
+int divide(int a,int b){
+	return b!=0?a/b:0; 
+}
+v.push_back(add);
+v.push_back(subtract);
+v.push_back(multiply);
+v.push_back(divide);
+```
+***
+### **练习6.56**
+> 调用上述vector对象中的每个元素并输出结果。
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int add(int a, int b) { return a + b; }
+int subtract(int a, int b) { return a - b; }
+int multiply(int a, int b) { return a * b; }
+int divide(int a, int b) { return b != 0 ? a / b : 0; }
+
+int main()
+{
+	int func(int, int);
+	vector<decltype(func)*> v;
+	v.push_back(add);
+	v.push_back(subtract);
+	v.push_back(multiply);
+	v.push_back(divide);
+
+	for (auto i : v)
+	{
+		cout << i(6, 2) << ", ";
+	}
+	cout << endl;
+	return 0;
+}
+```
+
+Result:  
+![](img/6-56.png)
